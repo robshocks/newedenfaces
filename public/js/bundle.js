@@ -325,7 +325,7 @@ var AddCharacter = function (_React$Component) {
 
 exports.default = AddCharacter;
 
-},{"../actions/AddCharacterActions":1,"../stores/AddCharacterStore":12,"react":"react"}],6:[function(require,module,exports){
+},{"../actions/AddCharacterActions":1,"../stores/AddCharacterStore":13,"react":"react"}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -345,6 +345,10 @@ var _Footer2 = _interopRequireDefault(_Footer);
 var _Navbar = require('./Navbar');
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var _Sidenav = require('./Sidenav');
+
+var _Sidenav2 = _interopRequireDefault(_Sidenav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -370,6 +374,7 @@ var App = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(_Navbar2.default, { history: this.props.history }),
+        _react2.default.createElement(_Sidenav2.default, null),
         this.props.children,
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -381,7 +386,7 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./Footer":7,"./Navbar":9,"react":"react"}],7:[function(require,module,exports){
+},{"./Footer":7,"./Navbar":9,"./Sidenav":10,"react":"react"}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -458,91 +463,21 @@ var Footer = function (_React$Component) {
 
       return _react2.default.createElement(
         'footer',
-        null,
+        { id: 'footer', className: 'app-footer', role: 'footer' },
         _react2.default.createElement(
           'div',
-          { className: 'container' },
+          { className: 'wrapper b-t bg-light' },
           _react2.default.createElement(
-            'div',
-            { className: 'row' },
+            'span',
+            { className: 'pull-right' },
+            '2.2.0 ',
             _react2.default.createElement(
-              'div',
-              { className: 'col-sm-5' },
-              _react2.default.createElement(
-                'h3',
-                { className: 'lead' },
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'Information'
-                ),
-                ' and ',
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'Copyright'
-                )
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Powered by ',
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'Node.js'
-                ),
-                ', ',
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'MongoDB'
-                ),
-                ' and ',
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'React'
-                ),
-                ' with Flux architecture and server-side rendering.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'You may view the ',
-                _react2.default.createElement(
-                  'a',
-                  { href: 'https://github.com/sahat/newedenfaces-react' },
-                  'Source Code'
-                ),
-                ' behind this project on GitHub.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                '© 2015 Sahat Yalkabov.'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-sm-7 hidden-xs' },
-              _react2.default.createElement(
-                'h3',
-                { className: 'lead' },
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  'Leaderboard'
-                ),
-                ' Top 5 Characters'
-              ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'list-inline' },
-                leaderboardCharacters
-              )
+              'a',
+              { href: true, 'ui-scroll': 'app', className: 'm-l-sm text-muted' },
+              _react2.default.createElement('i', { className: 'fa fa-long-arrow-up' })
             )
-          )
+          ),
+          '© 2016 Copyright.'
         )
       );
     }
@@ -553,8 +488,8 @@ var Footer = function (_React$Component) {
 
 exports.default = Footer;
 
-},{"../actions/FooterActions":2,"../stores/FooterStore":13,"react":"react","react-router":"react-router"}],8:[function(require,module,exports){
-'use strict';
+},{"../actions/FooterActions":2,"../stores/FooterStore":14,"react":"react","react-router":"react-router"}],8:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -562,7 +497,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -584,12 +519,233 @@ var Home = function (_React$Component) {
   }
 
   _createClass(Home, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'alert alert-info' },
-        'Hello from Home Component'
+        "aside",
+        { id: "aside", className: "app-aside hidden-xs bg-dark" },
+        _react2.default.createElement(
+          "div",
+          { className: "aside-wrap" },
+          _react2.default.createElement(
+            "div",
+            { className: "navi-wrap" },
+            _react2.default.createElement(
+              "div",
+              { className: "clearfix hidden-xs text-center hide", id: "aside-user" },
+              _react2.default.createElement(
+                "div",
+                { className: "dropdown wrapper" },
+                _react2.default.createElement(
+                  "a",
+                  { href: "app.page.profile" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "thumb-lg w-auto-folded avatar m-t-sm" },
+                    _react2.default.createElement("img", { src: "img/a0.jpg", className: "img-full", alt: "..." })
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "#", "data-toggle": "dropdown", className: "dropdown-toggle hidden-folded" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "clear" },
+                    _react2.default.createElement(
+                      "span",
+                      { className: "block m-t-sm" },
+                      _react2.default.createElement(
+                        "strong",
+                        { className: "font-bold text-lt" },
+                        "John.Smith"
+                      ),
+                      _react2.default.createElement("b", { className: "caret" })
+                    ),
+                    _react2.default.createElement(
+                      "span",
+                      { className: "text-muted text-xs block" },
+                      "Art Director"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "ul",
+                  { className: "dropdown-menu animated fadeInRight w hidden-folded" },
+                  _react2.default.createElement(
+                    "li",
+                    { className: "wrapper b-b m-b-sm bg-info m-t-n-xs" },
+                    _react2.default.createElement("span", { className: "arrow top hidden-folded arrow-info" }),
+                    _react2.default.createElement(
+                      "div",
+                      null,
+                      _react2.default.createElement(
+                        "p",
+                        null,
+                        "300mb of 500mb used"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "progress progress-xs m-b-none dker" },
+                      _react2.default.createElement("div", { className: "progress-bar bg-white", "data-toggle": "tooltip", "data-original-title": "50%" /*style="width: 50%"*/ })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                      "a",
+                      { href: true },
+                      "Settings"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                      "a",
+                      { href: "page_profile.html" },
+                      "Profile"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                      "a",
+                      { href: true },
+                      _react2.default.createElement(
+                        "span",
+                        { className: "badge bg-danger pull-right" },
+                        "3"
+                      ),
+                      "Notifications"
+                    )
+                  ),
+                  _react2.default.createElement("li", { className: "divider" }),
+                  _react2.default.createElement(
+                    "li",
+                    null,
+                    _react2.default.createElement(
+                      "a",
+                      { href: "page_signin.html" },
+                      "Logout"
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement("div", { className: "line dk hidden-folded" })
+            ),
+            _react2.default.createElement(
+              "nav",
+              { "ui-nav": true, className: "navi clearfix" },
+              _react2.default.createElement(
+                "ul",
+                { className: "nav" },
+                _react2.default.createElement(
+                  "li",
+                  { className: "hidden-folded padder m-t m-b-sm text-muted text-xs" },
+                  _react2.default.createElement(
+                    "span",
+                    null,
+                    "Navigation"
+                  )
+                ),
+                _react2.default.createElement(
+                  "li",
+                  null,
+                  _react2.default.createElement(
+                    "a",
+                    { href: true, className: "auto" },
+                    _react2.default.createElement(
+                      "span",
+                      { className: "pull-right text-muted" },
+                      _react2.default.createElement("i", { className: "fa fa-fw fa-angle-right text" }),
+                      _react2.default.createElement("i", { className: "fa fa-fw fa-angle-down text-active" })
+                    ),
+                    _react2.default.createElement("i", { className: "glyphicon glyphicon-stats icon text-primary-dker" }),
+                    _react2.default.createElement(
+                      "span",
+                      { className: "font-bold" },
+                      "Dashboard"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "ul",
+                    { className: "nav nav-sub dk" },
+                    _react2.default.createElement(
+                      "li",
+                      { className: "nav-sub-header" },
+                      _react2.default.createElement(
+                        "a",
+                        { href: true },
+                        _react2.default.createElement(
+                          "span",
+                          null,
+                          "Dashboard"
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "li",
+                      null,
+                      _react2.default.createElement(
+                        "a",
+                        { href: "index.html" },
+                        _react2.default.createElement(
+                          "span",
+                          null,
+                          "Dashboard v1"
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "li",
+                      null,
+                      _react2.default.createElement(
+                        "a",
+                        { href: "dashboard.html" },
+                        _react2.default.createElement(
+                          "b",
+                          { className: "label bg-info pull-right" },
+                          "N"
+                        ),
+                        _react2.default.createElement(
+                          "span",
+                          null,
+                          "Dashboard v2"
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "wrapper m-t" },
+              _react2.default.createElement(
+                "div",
+                { className: "text-center-folded" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "pull-right pull-none-folded" },
+                  "35%"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "hidden-folded" },
+                  "Release"
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "progress progress-xxs m-t-sm dk" },
+                _react2.default.createElement("div", { className: "progress-bar progress-bar-primary" /*style="width: 35%;"*/ })
+              )
+            )
+          )
+        )
       );
     }
   }]);
@@ -623,6 +779,8 @@ var _NavbarActions = require('../actions/NavbarActions');
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -694,87 +852,140 @@ var Navbar = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'nav',
-        { className: 'navbar navbar-default navbar-static-top' },
+        'header',
+        { id: 'header', className: 'app-header navbar', role: 'menu' },
         _react2.default.createElement(
           'div',
-          { className: 'navbar-header' },
+          { className: 'navbar-header bg-dark' },
           _react2.default.createElement(
             'button',
-            { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#navbar' },
-            _react2.default.createElement(
-              'span',
-              { className: 'sr-only' },
-              'Toggle navigation'
-            ),
-            _react2.default.createElement('span', { className: 'icon-bar' }),
-            _react2.default.createElement('span', { className: 'icon-bar' }),
-            _react2.default.createElement('span', { className: 'icon-bar' })
+            { className: 'pull-right visible-xs dk', 'ui-toggle-className': 'show', target: '.navbar-collapse' },
+            _react2.default.createElement('i', { className: 'glyphicon glyphicon-cog' })
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/', className: 'navbar-brand' },
+            'button',
+            { className: 'pull-right visible-xs', 'ui-toggle-className': 'off-screen', target: '.app-aside', 'ui-scroll': 'app' },
+            _react2.default.createElement('i', { className: 'glyphicon glyphicon-align-justify' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#/', className: 'navbar-brand text-lt' },
+            _react2.default.createElement('i', { className: 'fa fa-btc' }),
+            _react2.default.createElement('img', { src: 'img/logo.png', alt: '.', className: 'hide' }),
             _react2.default.createElement(
               'span',
-              { ref: 'triangles', className: 'triangles animated ' + this.state.ajaxAnimationClass },
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' })
-            ),
-            'NEF',
-            _react2.default.createElement(
-              'span',
-              { className: 'badge badge-up badge-danger' },
-              this.state.onlineUsers
+              { className: 'hidden-folded m-l-xs' },
+              'Boost4'
             )
           )
         ),
         _react2.default.createElement(
           'div',
-          { id: 'navbar', className: 'navbar-collapse collapse' },
+          { className: 'collapse pos-rlt navbar-collapse box-shadow bg-white-only' },
           _react2.default.createElement(
-            'form',
-            { ref: 'searchForm', className: 'navbar-form navbar-left animated', onSubmit: this.handleSubmit.bind(this) },
+            'div',
+            { className: 'nav navbar-nav hidden-xs' },
             _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: this.state.totalCharacters + ' characters', value: this.state.searchQuery, onChange: _NavbarActions2.default.updateSearchQuery }),
-              _react2.default.createElement(
-                'span',
-                { className: 'input-group-btn' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default', onClick: this.handleSubmit.bind(this) },
-                  _react2.default.createElement('span', { className: 'glyphicon glyphicon-search' })
-                )
-              )
+              'a',
+              { href: '#', className: 'btn no-shadow navbar-btn', 'ui-toggle-className': 'app-aside-folded', target: '.app' },
+              _react2.default.createElement('i', { className: 'fa fa-dedent fa-fw text' }),
+              _react2.default.createElement('i', { className: 'fa fa-indent fa-fw text-active' })
             )
           ),
           _react2.default.createElement(
             'ul',
-            { className: 'nav navbar-nav' },
+            { className: 'nav navbar-nav navbar-right' },
             _react2.default.createElement(
               'li',
-              null,
+              { className: 'dropdown' },
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/' },
-                'Home'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
+                'a',
+                { href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle' },
+                _react2.default.createElement('i', { className: 'icon-bell fa-fw' }),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'visible-xs-inline' },
+                  'Notifications'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'badge badge-sm up bg-danger pull-right-xs' },
+                  '2'
+                )
+              ),
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/stats' },
-                'Stats'
+                'div',
+                { className: 'dropdown-menu w-xl animated fadeInUp' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'panel bg-white' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'panel-heading b-light bg-light' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'You have ',
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '2'
+                      ),
+                      ' notifications'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'list-group' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: true, className: 'list-group-item' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'pull-left m-r thumb-sm' },
+                        _react2.default.createElement('img', { src: 'img/a0.jpg', alt: '...', className: 'img-circle' })
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'clear block m-b-none' },
+                        'Use awesome animate.css',
+                        _react2.default.createElement(
+                          'small',
+                          { className: 'text-muted' },
+                          '10 minutes ago'
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'a',
+                      { href: true, className: 'list-group-item' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'clear block m-b-none' },
+                        '1.0 initial released',
+                        _react2.default.createElement(
+                          'small',
+                          { className: 'text-muted' },
+                          '1 hour ago'
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'panel-footer text-sm' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: true, className: 'pull-right' },
+                      _react2.default.createElement('i', { className: 'fa fa-cog' })
+                    ),
+                    _react2.default.createElement(
+                      'a',
+                      { href: '#notes', 'data-toggle': 'class:show animated fadeInRight' },
+                      'See all the notifications'
+                    )
+                  )
+                )
               )
             ),
             _react2.default.createElement(
@@ -782,180 +993,81 @@ var Navbar = function (_React$Component) {
               { className: 'dropdown' },
               _react2.default.createElement(
                 'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-                'Top 100 ',
-                _react2.default.createElement('span', { className: 'caret' })
+                _defineProperty({ href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle clear' }, 'data-toggle', 'dropdown'),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm' },
+                  _react2.default.createElement('img', { src: 'img/a0.jpg', alt: '...' }),
+                  _react2.default.createElement('i', { className: 'on md b-white bottom' })
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'hidden-sm hidden-md' },
+                  'John.Smith'
+                ),
+                ' ',
+                _react2.default.createElement('b', { className: 'caret' })
               ),
               _react2.default.createElement(
                 'ul',
-                { className: 'dropdown-menu' },
+                { className: 'dropdown-menu animated fadeInRight w' },
+                _react2.default.createElement(
+                  'li',
+                  { className: 'wrapper b-b m-b-sm bg-light m-t-n-xs' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      '300mb of 500mb used'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'progress progress-xs m-b-none dker' },
+                    _react2.default.createElement('div', { className: 'progress-bar progress-bar-info', 'data-toggle': 'tooltip', 'data-original-title': '50%' })
+                  )
+                ),
                 _react2.default.createElement(
                   'li',
                   null,
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/top' },
-                    'Top Overall'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/top/caldari' },
-                    'Caldari'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
+                    'a',
+                    { href: true },
                     _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/caldari/achura' },
-                        'Achura'
-                      )
+                      'span',
+                      { className: 'badge bg-danger pull-right' },
+                      '30%'
                     ),
                     _react2.default.createElement(
-                      'li',
+                      'span',
                       null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/caldari/civire' },
-                        'Civire'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/caldari/deteis' },
-                        'Deteis'
-                      )
+                      'Settings'
                     )
                   )
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'dropdown-submenu' },
+                  null,
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/top/gallente' },
-                    'Gallente'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/gallente/gallente' },
-                        'Gallente'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/gallente/intaki' },
-                        'Intaki'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/gallente/jin-mei' },
-                        'Jin-Mei'
-                      )
-                    )
+                    'a',
+                    { 'ui-sref': 'app.page.profile' },
+                    'Profile'
                   )
                 ),
                 _react2.default.createElement(
                   'li',
-                  { className: 'dropdown-submenu' },
+                  null,
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/top/minmatar' },
-                    'Minmatar'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
+                    'a',
+                    { 'ui-sref': 'app.docs' },
                     _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/minmatar/brutor' },
-                        'Brutor'
-                      )
+                      'span',
+                      { className: 'label bg-info pull-right' },
+                      'new'
                     ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/minmatar/sebiestor' },
-                        'Sebiestor'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/minmatar/vherokior' },
-                        'Vherokior'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/top/amarr' },
-                    'Amarr'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/amarr/amarr' },
-                        'Amarr'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/amarr/ni-kunni' },
-                        'Ni-Kunni'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/top/amarr/khanid' },
-                        'Khanid'
-                      )
-                    )
+                    'Help'
                   )
                 ),
                 _react2.default.createElement('li', { className: 'divider' }),
@@ -963,386 +1075,11 @@ var Navbar = function (_React$Component) {
                   'li',
                   null,
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/shame' },
-                    'Hall of Shame'
+                    'a',
+                    { 'ui-sref': 'access.signin' },
+                    'Logout'
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'dropdown' },
-              _react2.default.createElement(
-                'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-                'Female ',
-                _react2.default.createElement('span', { className: 'caret' })
-              ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'dropdown-menu' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/female' },
-                    'All'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/female/caldari' },
-                    'Caldari'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/caldari/achura' },
-                        'Achura'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/caldari/civire/' },
-                        'Civire'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/caldari/deteis' },
-                        'Deteis'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/female/gallente' },
-                    'Gallente'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/gallente/gallente' },
-                        'Gallente'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/gallente/intaki' },
-                        'Intaki'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/gallente/jin-mei' },
-                        'Jin-Mei'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/female/minmatar' },
-                    'Minmatar'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/minmatar/brutor' },
-                        'Brutor'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/minmatar/sebiestor' },
-                        'Sebiestor'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/minmatar/vherokior' },
-                        'Vherokior'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/female/amarr' },
-                    'Amarr'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/amarr/amarr' },
-                        'Amarr'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/amarr/ni-kunni' },
-                        'Ni-Kunni'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/female/amarr/khanid' },
-                        'Khanid'
-                      )
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'dropdown' },
-              _react2.default.createElement(
-                'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-                'Male ',
-                _react2.default.createElement('span', { className: 'caret' })
-              ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'dropdown-menu' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/male' },
-                    'All'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/male/caldari' },
-                    'Caldari'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/caldari/achura' },
-                        'Achura'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/caldari/civire' },
-                        'Civire'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/caldari/deteis' },
-                        'Deteis'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/male/gallente' },
-                    'Gallente'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/gallente/gallente' },
-                        'Gallente'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/gallente/intaki' },
-                        'Intaki'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/gallente/jin-mei' },
-                        'Jin-Mei'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/male/minmatar' },
-                    'Minmatar'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/minmatar/brutor' },
-                        'Brutor'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/minmatar/sebiestor' },
-                        'Sebiestor'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/minmatar/vherokior' },
-                        'Vherokior'
-                      )
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'dropdown-submenu' },
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/male/amarr' },
-                    'Amarr'
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'dropdown-menu' },
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/amarr/amarr' },
-                        'Amarr'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/amarr/ni-kunni' },
-                        'Ni-Kunni'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/male/amarr/khanid' },
-                        'Khanid'
-                      )
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/add' },
-                'Add'
               )
             )
           )
@@ -1356,7 +1093,88 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":14,"react":"react","react-router":"react-router"}],10:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../stores/NavbarStore":15,"react":"react","react-router":"react-router"}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _FooterStore = require('../stores/FooterStore');
+
+var _FooterStore2 = _interopRequireDefault(_FooterStore);
+
+var _FooterActions = require('../actions/FooterActions');
+
+var _FooterActions2 = _interopRequireDefault(_FooterActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sidenav = function (_React$Component) {
+  _inherits(Sidenav, _React$Component);
+
+  function Sidenav(props) {
+    _classCallCheck(this, Sidenav);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidenav).call(this, props));
+
+    _this.state = _FooterStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Sidenav, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _FooterStore2.default.listen(this.onChange);
+      _FooterActions2.default.getTopCharacters();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _FooterStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Test'
+        )
+      );
+    }
+  }]);
+
+  return Sidenav;
+}(_react2.default.Component);
+
+exports.default = Sidenav;
+
+},{"../actions/FooterActions":2,"../stores/FooterStore":14,"react":"react","react-router":"react-router"}],11:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1389,7 +1207,7 @@ _reactDom2.default.render(_react2.default.createElement(
   _routes2.default
 ), document.getElementById('app'));
 
-},{"./routes":11,"history/lib/createBrowserHistory":23,"react":"react","react-dom":"react-dom","react-router":"react-router"}],11:[function(require,module,exports){
+},{"./routes":12,"history/lib/createBrowserHistory":24,"react":"react","react-dom":"react-dom","react-router":"react-router"}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1423,7 +1241,7 @@ exports.default = _react2.default.createElement(
     _react2.default.createElement(_reactRouter.Route, { path: '/add', component: _AddCharacter2.default })
 );
 
-},{"./components/AddCharacter":5,"./components/App":6,"./components/Home":8,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+},{"./components/AddCharacter":5,"./components/App":6,"./components/Home":8,"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1499,7 +1317,7 @@ var AddCharacterStore = function () {
 
 exports.default = _alt2.default.createStore(AddCharacterStore);
 
-},{"../actions/AddCharacterActions":1,"../alt":4}],13:[function(require,module,exports){
+},{"../actions/AddCharacterActions":1,"../alt":4}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1546,7 +1364,7 @@ var FooterStore = function () {
 
 exports.default = _alt2.default.createStore(FooterStore);
 
-},{"../actions/FooterActions":2,"../alt":4}],14:[function(require,module,exports){
+},{"../actions/FooterActions":2,"../alt":4}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1623,7 +1441,7 @@ var NavbarStore = function () {
 
 exports.default = _alt2.default.createStore(NavbarStore);
 
-},{"../actions/NavbarActions":3,"../alt":4}],15:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../alt":4}],16:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -1719,7 +1537,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":16,"./lib/keys.js":17}],16:[function(require,module,exports){
+},{"./lib/is_arguments.js":17,"./lib/keys.js":18}],17:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -1741,7 +1559,7 @@ function unsupported(object){
     false;
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -1752,7 +1570,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -1784,7 +1602,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -1811,7 +1629,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -1883,7 +1701,7 @@ function readState(key) {
 }
 }).call(this,require('_process'))
 
-},{"_process":32,"warning":33}],21:[function(require,module,exports){
+},{"_process":33,"warning":34}],22:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1964,13 +1782,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2152,7 +1970,7 @@ exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":18,"./DOMStateStorage":20,"./DOMUtils":21,"./ExecutionEnvironment":22,"./createDOMHistory":24,"./parsePath":29,"_process":32,"invariant":31}],24:[function(require,module,exports){
+},{"./Actions":19,"./DOMStateStorage":21,"./DOMUtils":22,"./ExecutionEnvironment":23,"./createDOMHistory":25,"./parsePath":30,"_process":33,"invariant":32}],25:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2196,7 +2014,7 @@ exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./DOMUtils":21,"./ExecutionEnvironment":22,"./createHistory":25,"_process":32,"invariant":31}],25:[function(require,module,exports){
+},{"./DOMUtils":22,"./ExecutionEnvironment":23,"./createHistory":26,"_process":33,"invariant":32}],26:[function(require,module,exports){
 //import warning from 'warning'
 'use strict';
 
@@ -2488,7 +2306,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":18,"./AsyncUtils":19,"./createLocation":26,"./deprecate":27,"./parsePath":29,"./runTransitionHook":30,"deep-equal":15}],26:[function(require,module,exports){
+},{"./Actions":19,"./AsyncUtils":20,"./createLocation":27,"./deprecate":28,"./parsePath":30,"./runTransitionHook":31,"deep-equal":16}],27:[function(require,module,exports){
 //import warning from 'warning'
 'use strict';
 
@@ -2543,7 +2361,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":18,"./parsePath":29}],27:[function(require,module,exports){
+},{"./Actions":19,"./parsePath":30}],28:[function(require,module,exports){
 //import warning from 'warning'
 
 "use strict";
@@ -2559,7 +2377,7 @@ function deprecate(fn) {
 
 exports["default"] = deprecate;
 module.exports = exports["default"];
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2573,7 +2391,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2621,7 +2439,7 @@ exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./extractPath":28,"_process":32,"warning":33}],30:[function(require,module,exports){
+},{"./extractPath":29,"_process":33,"warning":34}],31:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2649,7 +2467,7 @@ exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"_process":32,"warning":33}],31:[function(require,module,exports){
+},{"_process":33,"warning":34}],32:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -2705,7 +2523,7 @@ module.exports = invariant;
 
 }).call(this,require('_process'))
 
-},{"_process":32}],32:[function(require,module,exports){
+},{"_process":33}],33:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2826,7 +2644,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -2891,7 +2709,7 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 
-},{"_process":32}]},{},[10])
+},{"_process":33}]},{},[11])
 
 
 //# sourceMappingURL=bundle.js.map
