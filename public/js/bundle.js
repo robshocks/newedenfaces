@@ -489,7 +489,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 },{"../actions/FooterActions":2,"../stores/FooterStore":14,"react":"react","react-router":"react-router"}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -497,7 +497,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -519,233 +519,12 @@ var Home = function (_React$Component) {
   }
 
   _createClass(Home, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "aside",
-        { id: "aside", className: "app-aside hidden-xs bg-dark" },
-        _react2.default.createElement(
-          "div",
-          { className: "aside-wrap" },
-          _react2.default.createElement(
-            "div",
-            { className: "navi-wrap" },
-            _react2.default.createElement(
-              "div",
-              { className: "clearfix hidden-xs text-center hide", id: "aside-user" },
-              _react2.default.createElement(
-                "div",
-                { className: "dropdown wrapper" },
-                _react2.default.createElement(
-                  "a",
-                  { href: "app.page.profile" },
-                  _react2.default.createElement(
-                    "span",
-                    { className: "thumb-lg w-auto-folded avatar m-t-sm" },
-                    _react2.default.createElement("img", { src: "img/a0.jpg", className: "img-full", alt: "..." })
-                  )
-                ),
-                _react2.default.createElement(
-                  "a",
-                  { href: "#", "data-toggle": "dropdown", className: "dropdown-toggle hidden-folded" },
-                  _react2.default.createElement(
-                    "span",
-                    { className: "clear" },
-                    _react2.default.createElement(
-                      "span",
-                      { className: "block m-t-sm" },
-                      _react2.default.createElement(
-                        "strong",
-                        { className: "font-bold text-lt" },
-                        "John.Smith"
-                      ),
-                      _react2.default.createElement("b", { className: "caret" })
-                    ),
-                    _react2.default.createElement(
-                      "span",
-                      { className: "text-muted text-xs block" },
-                      "Art Director"
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  "ul",
-                  { className: "dropdown-menu animated fadeInRight w hidden-folded" },
-                  _react2.default.createElement(
-                    "li",
-                    { className: "wrapper b-b m-b-sm bg-info m-t-n-xs" },
-                    _react2.default.createElement("span", { className: "arrow top hidden-folded arrow-info" }),
-                    _react2.default.createElement(
-                      "div",
-                      null,
-                      _react2.default.createElement(
-                        "p",
-                        null,
-                        "300mb of 500mb used"
-                      )
-                    ),
-                    _react2.default.createElement(
-                      "div",
-                      { className: "progress progress-xs m-b-none dker" },
-                      _react2.default.createElement("div", { className: "progress-bar bg-white", "data-toggle": "tooltip", "data-original-title": "50%" /*style="width: 50%"*/ })
-                    )
-                  ),
-                  _react2.default.createElement(
-                    "li",
-                    null,
-                    _react2.default.createElement(
-                      "a",
-                      { href: true },
-                      "Settings"
-                    )
-                  ),
-                  _react2.default.createElement(
-                    "li",
-                    null,
-                    _react2.default.createElement(
-                      "a",
-                      { href: "page_profile.html" },
-                      "Profile"
-                    )
-                  ),
-                  _react2.default.createElement(
-                    "li",
-                    null,
-                    _react2.default.createElement(
-                      "a",
-                      { href: true },
-                      _react2.default.createElement(
-                        "span",
-                        { className: "badge bg-danger pull-right" },
-                        "3"
-                      ),
-                      "Notifications"
-                    )
-                  ),
-                  _react2.default.createElement("li", { className: "divider" }),
-                  _react2.default.createElement(
-                    "li",
-                    null,
-                    _react2.default.createElement(
-                      "a",
-                      { href: "page_signin.html" },
-                      "Logout"
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement("div", { className: "line dk hidden-folded" })
-            ),
-            _react2.default.createElement(
-              "nav",
-              { "ui-nav": true, className: "navi clearfix" },
-              _react2.default.createElement(
-                "ul",
-                { className: "nav" },
-                _react2.default.createElement(
-                  "li",
-                  { className: "hidden-folded padder m-t m-b-sm text-muted text-xs" },
-                  _react2.default.createElement(
-                    "span",
-                    null,
-                    "Navigation"
-                  )
-                ),
-                _react2.default.createElement(
-                  "li",
-                  null,
-                  _react2.default.createElement(
-                    "a",
-                    { href: true, className: "auto" },
-                    _react2.default.createElement(
-                      "span",
-                      { className: "pull-right text-muted" },
-                      _react2.default.createElement("i", { className: "fa fa-fw fa-angle-right text" }),
-                      _react2.default.createElement("i", { className: "fa fa-fw fa-angle-down text-active" })
-                    ),
-                    _react2.default.createElement("i", { className: "glyphicon glyphicon-stats icon text-primary-dker" }),
-                    _react2.default.createElement(
-                      "span",
-                      { className: "font-bold" },
-                      "Dashboard"
-                    )
-                  ),
-                  _react2.default.createElement(
-                    "ul",
-                    { className: "nav nav-sub dk" },
-                    _react2.default.createElement(
-                      "li",
-                      { className: "nav-sub-header" },
-                      _react2.default.createElement(
-                        "a",
-                        { href: true },
-                        _react2.default.createElement(
-                          "span",
-                          null,
-                          "Dashboard"
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      "li",
-                      null,
-                      _react2.default.createElement(
-                        "a",
-                        { href: "index.html" },
-                        _react2.default.createElement(
-                          "span",
-                          null,
-                          "Dashboard v1"
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      "li",
-                      null,
-                      _react2.default.createElement(
-                        "a",
-                        { href: "dashboard.html" },
-                        _react2.default.createElement(
-                          "b",
-                          { className: "label bg-info pull-right" },
-                          "N"
-                        ),
-                        _react2.default.createElement(
-                          "span",
-                          null,
-                          "Dashboard v2"
-                        )
-                      )
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "wrapper m-t" },
-              _react2.default.createElement(
-                "div",
-                { className: "text-center-folded" },
-                _react2.default.createElement(
-                  "span",
-                  { className: "pull-right pull-none-folded" },
-                  "35%"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "hidden-folded" },
-                  "Release"
-                )
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "progress progress-xxs m-t-sm dk" },
-                _react2.default.createElement("div", { className: "progress-bar progress-bar-primary" /*style="width: 35%;"*/ })
-              )
-            )
-          )
-        )
+        'div',
+        null,
+        'Test'
       );
     }
   }]);
@@ -1158,12 +937,229 @@ var Sidenav = function (_React$Component) {
     value: function render() {
 
       return _react2.default.createElement(
-        'div',
-        null,
+        'aside',
+        { id: 'aside', className: 'app-aside hidden-xs bg-dark' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Test'
+          'div',
+          { className: 'aside-wrap' },
+          _react2.default.createElement(
+            'div',
+            { className: 'navi-wrap' },
+            _react2.default.createElement(
+              'div',
+              { className: 'clearfix hidden-xs text-center hide', id: 'aside-user' },
+              _react2.default.createElement(
+                'div',
+                { className: 'dropdown wrapper' },
+                _react2.default.createElement(
+                  'a',
+                  { href: 'app.page.profile' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'thumb-lg w-auto-folded avatar m-t-sm' },
+                    _react2.default.createElement('img', { src: 'img/a0.jpg', className: 'img-full', alt: '...' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle hidden-folded' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'clear' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'block m-t-sm' },
+                      _react2.default.createElement(
+                        'strong',
+                        { className: 'font-bold text-lt' },
+                        'John.Smith'
+                      ),
+                      _react2.default.createElement('b', { className: 'caret' })
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'text-muted text-xs block' },
+                      'Art Director'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'ul',
+                  { className: 'dropdown-menu animated fadeInRight w hidden-folded' },
+                  _react2.default.createElement(
+                    'li',
+                    { className: 'wrapper b-b m-b-sm bg-info m-t-n-xs' },
+                    _react2.default.createElement('span', { className: 'arrow top hidden-folded arrow-info' }),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'p',
+                        null,
+                        '300mb of 500mb used'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'progress progress-xs m-b-none dker' },
+                      _react2.default.createElement('div', { className: 'progress-bar bg-white', 'data-toggle': 'tooltip', 'data-original-title': '50%' })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                      'a',
+                      { href: true },
+                      'Settings'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                      'a',
+                      { href: 'page_profile.html' },
+                      'Profile'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                      'a',
+                      { href: true },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'badge bg-danger pull-right' },
+                        '3'
+                      ),
+                      'Notifications'
+                    )
+                  ),
+                  _react2.default.createElement('li', { className: 'divider' }),
+                  _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                      'a',
+                      { href: 'page_signin.html' },
+                      'Logout'
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement('div', { className: 'line dk hidden-folded' })
+            ),
+            _react2.default.createElement(
+              'nav',
+              { 'ui-nav': true, className: 'navi clearfix' },
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav' },
+                _react2.default.createElement(
+                  'li',
+                  { className: 'hidden-folded padder m-t m-b-sm text-muted text-xs' },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    'Navigation'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    'a',
+                    { href: true, className: 'auto' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'pull-right text-muted' },
+                      _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-right text' }),
+                      _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-down text-active' })
+                    ),
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-stats icon text-primary-dker' }),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'font-bold' },
+                      'Dashboard'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'ul',
+                    { className: 'nav nav-sub dk' },
+                    _react2.default.createElement(
+                      'li',
+                      { className: 'nav-sub-header' },
+                      _react2.default.createElement(
+                        'a',
+                        { href: true },
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          'Dashboard'
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: 'index.html' },
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          'Dashboard v1'
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: 'dashboard.html' },
+                        _react2.default.createElement(
+                          'b',
+                          { className: 'label bg-info pull-right' },
+                          'N'
+                        ),
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          'Dashboard v2'
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'wrapper m-t' },
+              _react2.default.createElement(
+                'div',
+                { className: 'text-center-folded' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'pull-right pull-none-folded' },
+                  '35%'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'hidden-folded' },
+                  'Release'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'progress progress-xxs m-t-sm dk' },
+                _react2.default.createElement('div', { className: 'progress-bar progress-bar-primary' })
+              )
+            )
+          )
         )
       );
     }
