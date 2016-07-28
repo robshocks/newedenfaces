@@ -1,4 +1,3 @@
-
 // Babel ES6/JSX Compiler
 require('babel-register');
 var mongoose = require('mongoose');
@@ -10,6 +9,7 @@ var Router = require('react-router');
 var routes = require('./app/routes');
 
 var express = require('express');
+//var login = require('./login');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
@@ -20,13 +20,13 @@ var async = require('async');
 var request = require('request');
 var xml2js = require('xml2js');
 
-var config = require('./config');
+var config = require('./config'); // Imports Mongo Address setttings
 
 app.set('port', process.env.PORT || 8080);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Set static folder to public
 
 
 /**
@@ -106,6 +106,8 @@ mongoose.connect(config.database);
 mongoose.connection.on('error', function() {
 	  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
 });
+
+// Router Shit starts here
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

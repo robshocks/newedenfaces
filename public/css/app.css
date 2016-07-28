@@ -138,7 +138,7 @@ a:hover .caret-white {
 }
 
 .progress-bar-primary {
-  background-color: #7266ba;
+  background-color: #ff4700;
 }
 
 .progress-bar-info {
@@ -1562,7 +1562,7 @@ html.bg {
 }
 
 .arrow.top.arrow-primary:after {
-  border-bottom-color: #7266ba;
+  border-bottom-color: #ff4700;
 }
 
 .arrow.top.arrow-info:after {
@@ -1609,7 +1609,7 @@ html.bg {
 }
 
 .arrow.right.arrow-primary:after {
-  border-left-color: #7266ba;
+  border-left-color: #ff4700;
 }
 
 .arrow.right.arrow-info:after {
@@ -1656,7 +1656,7 @@ html.bg {
 }
 
 .arrow.bottom.arrow-primary:after {
-  border-top-color: #7266ba;
+  border-top-color: #ff4700;
 }
 
 .arrow.bottom.arrow-info:after {
@@ -1703,7 +1703,7 @@ html.bg {
 }
 
 .arrow.left.arrow-primary:after {
-  border-right-color: #7266ba;
+  border-right-color: #ff4700;
 }
 
 .arrow.left.arrow-info:after {
@@ -1819,8 +1819,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff !important;
-  background-color: #7266ba;
-  border-color: #7266ba;
+  background-color: #ff4700;
+  border-color: #ff4700;
 }
 
 .btn-primary:hover,
@@ -1854,8 +1854,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #7266ba;
-  border-color: #7266ba;
+  background-color: #ff4700;
+  border-color: #ff4700;
 }
 
 .btn-success {
@@ -3188,7 +3188,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-primary {
   color: #f4f3f9;
-  background-color: #7266ba;
+  background-color: #ff4700;
 }
 
 .bg-primary.lt,
@@ -3213,7 +3213,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-primary.bg,
 .bg-primary .bg {
-  background-color: #7266ba;
+  background-color: #ff4700;
 }
 
 .bg-primary a {
@@ -3755,7 +3755,7 @@ a.text-primary:hover {
 }
 
 .text-primary {
-  color: #7266ba;
+  color: #ff4700;
 }
 
 .text-primary-lt {
@@ -4272,7 +4272,7 @@ a.text-#000000:hover {
 }
 
 .b-primary {
-  border-color: #7266ba;
+  border-color: #ff4700;
 }
 
 .b-success {
@@ -4312,7 +4312,7 @@ a.text-#000000:hover {
 }
 
 .b-l-primary {
-  border-left-color: #7266ba;
+  border-left-color: #ff4700;
 }
 
 .b-l-success {
@@ -5146,10 +5146,10 @@ a.text-#000000:hover {
     background-color: #fad733;
   }
   66.66% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
   99.9% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
 }
 
@@ -5167,10 +5167,10 @@ a.text-#000000:hover {
     background-color: #fad733;
   }
   66.66% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
   99.9% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
 }
 
@@ -5188,9 +5188,9 @@ a.text-#000000:hover {
     background-color: #fad733;
   }
   66.66% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
   99.9% {
-    background-color: #7266ba;
+    background-color: #ff4700;
   }
 }

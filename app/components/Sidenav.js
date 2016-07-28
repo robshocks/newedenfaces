@@ -30,7 +30,7 @@ class Sidenav extends React.Component {
       
 
 
-<aside id="aside" className="app-aside hidden-xs bg-dark">
+<aside id="aside" className="app-aside hidden-xs bg-white">
       
       <div className="aside-wrap">
         <div className="navi-wrap">
@@ -83,17 +83,21 @@ class Sidenav extends React.Component {
 
           <nav ui-nav className="navi clearfix">
             <ul className="nav">
-              <li className="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                <span>Navigation</span>
-              </li>
+              
               <li>
+                <a href className="auto">      
+                  <i className="fa fa-plus-circle icon-large text-primary"></i>
+                  <span className="font-bold">New ...</span>
+                </a>
+                </li>
+            <li>
                 <a href className="auto">      
                   <span className="pull-right text-muted">
                     <i className="fa fa-fw fa-angle-right text"></i>
                     <i className="fa fa-fw fa-angle-down text-active"></i>
                   </span>
-                  <i className="glyphicon glyphicon-stats icon text-primary-dker"></i>
-                  <span className="font-bold">Dashboard</span>
+                  <i className="fa fa-folder icon text-primary"></i>
+                  <span className="font-bold">Folder</span>
                 </a>
                 <ul className="nav nav-sub dk">
                   <li className="nav-sub-header">
@@ -118,16 +122,6 @@ class Sidenav extends React.Component {
             </ul>
           </nav>
 
-          <div className="wrapper m-t">
-            <div className="text-center-folded">
-              <span className="pull-right pull-none-folded">35%</span>
-              <span className="hidden-folded">Release</span>
-            </div>
-            <div className="progress progress-xxs m-t-sm dk">
-              <div className="progress-bar progress-bar-primary" >
-              </div>
-            </div>
-          </div>
 </div>
 </div>
   </aside>

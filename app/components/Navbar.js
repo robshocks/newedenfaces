@@ -60,7 +60,7 @@ class Navbar extends React.Component {
 
     <header id="header" className="app-header navbar" role="menu">
   
-      <div className="navbar-header bg-dark">
+      <div className="navbar-header bg-primary">
         <button className="pull-right visible-xs dk" ui-toggle-className="show" target=".navbar-collapse">
           <i className="glyphicon glyphicon-cog"></i>
         </button>
@@ -69,9 +69,9 @@ class Navbar extends React.Component {
         </button>
         {/* <!--brand--> */} 
         <a href="#/" className="navbar-brand text-lt">
-          <i className="fa fa-btc"></i>
+          <i className="fa fa-rocket"></i>
           <img src="img/logo.png" alt="." className="hide"></img>
-          <span className="hidden-folded m-l-xs">Boost4</span>
+          <span className="hidden-folded m-l-xs">Boostling</span>
         </a>
         {/*<!-- / brand -->*/}
       </div>
