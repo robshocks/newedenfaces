@@ -85,10 +85,10 @@ class Sidenav extends React.Component {
             <ul className="nav">
               
               <li>
-                <a href className="auto">      
-                  <i className="fa fa-plus-circle icon-large text-primary"></i>
-                  <span className="font-bold">New ...</span>
-                </a>
+                <Link to={'/new/'}>
+                      <i className="fa fa-plus-circle icon-large text-primary"></i>
+                      <span className="font-bold">New ...</span>
+                </Link>
                 </li>
             <li>
                 <a href className="auto">      

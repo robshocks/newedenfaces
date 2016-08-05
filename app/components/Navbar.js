@@ -15,21 +15,21 @@ class Navbar extends React.Component {
     NavbarStore.listen(this.onChange);
     NavbarActions.getCharacterCount();
 
-    let socket = io.connect();
-
-    socket.on('onlineUsers', (data) => {
-      NavbarActions.updateOnlineUsers(data);
-    });
-
-    $(document).ajaxStart(() => {
-      NavbarActions.updateAjaxAnimation('fadeIn');
-    });
-
-    $(document).ajaxComplete(() => {
-      setTimeout(() => {
-        NavbarActions.updateAjaxAnimation('fadeOut');
-      }, 750);
-    });
+    // let socket = io.connect();
+    //
+    // socket.on('onlineUsers', (data) => {
+    //   NavbarActions.updateOnlineUsers(data);
+    // });
+    //
+    // $(document).ajaxStart(() => {
+    //   NavbarActions.updateAjaxAnimation('fadeIn');
+    // });
+    //
+    // $(document).ajaxComplete(() => {
+    //   setTimeout(() => {
+    //     NavbarActions.updateAjaxAnimation('fadeOut');
+    //   }, 750);
+    // });
   }
 
   componentWillUnmount() {
@@ -68,11 +68,12 @@ class Navbar extends React.Component {
           <i className="glyphicon glyphicon-align-justify"></i>
         </button>
         {/* <!--brand--> */} 
-        <a href="#/" className="navbar-brand text-lt">
-          <i className="fa fa-rocket"></i>
-          <img src="img/logo.png" alt="." className="hide"></img>
+        
+          
+            <Link to={'/'} className="navbar-brand text-lt">
+            <i className="fa fa-rocket"></i>
           <span className="hidden-folded m-l-xs">Boostling</span>
-        </a>
+        </Link>
         {/*<!-- / brand -->*/}
       </div>
 

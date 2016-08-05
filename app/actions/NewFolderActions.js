@@ -1,10 +1,10 @@
 import alt from '../alt';
 
-class NewLayoutActions {
+class NewFolderActions {
   constructor() {
     this.generateActions(
-      'addCharacterSuccess',
-      'addCharacterFail',
+      'newFolderSuccess',
+      'newFolderFail',
       'updateName',
       'updateGender',
       'invalidName',
@@ -12,19 +12,19 @@ class NewLayoutActions {
     );
   }
 
-  addCharacter(name, gender) {
+  newFolder(name, gender) {
     $.ajax({
       type: 'POST',
-      url: '/api/characters',
+      url: '/api/newfolder',
       data: { name: name, gender: gender }
     })
       .done((data) => {
-        this.actions.addCharacterSuccess(data.message);
+        this.actions.newFolderSuccess(data.message);
       })
       .fail((jqXhr) => {
-        this.actions.addCharacterFail(jqXhr.responseJSON.message);
+        this.actions.newFolderFail(jqXhr.responseJSON.message);
       });
   }
 }
 
-export default alt.createActions(NewLayoutActions);
+export default alt.createActions(NewFolderActions);

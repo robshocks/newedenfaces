@@ -1,6 +1,8 @@
 import React from 'react';
 import NewLayoutStore from '../stores/NewLayoutStore';
 import NewLayoutActions from '../actions/NewLayoutActions';
+import NewOptions from './NewOptions';
+import NewFolder from './NewFolder';
 
 class NewLayout extends React.Component {
   constructor(props) {
@@ -51,10 +53,11 @@ class NewLayout extends React.Component {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="panel b-a">
-                                <div className="panel-heading">Dropdown</div>
+                                <div className="panel-heading b-b b-light">Create New ..</div>
                                 <div className="panel-body">
-                                        Test1
-                                </div>
+                                        
+                           {this.props.children}    
+                            </div>
                             </div>
                         </div>
                     </div>

@@ -9,19 +9,19 @@ class AddCharacter extends React.Component {
     this.state = AddCharacterStore.getState();
     this.onChange = this.onChange.bind(this);
   }
-
+  //When the component loads on the page start listening for changes
   componentDidMount() {
     AddCharacterStore.listen(this.onChange);
   }
-
+ // Stop listening when component unmounts
   componentWillUnmount() {
     AddCharacterStore.unlisten(this.onChange);
   }
-
+  //Wnen something in the component changes, change the state  
   onChange(state) {
     this.setState(state);
   }
-
+  //
   handleSubmit(event) {
     event.preventDefault();
 

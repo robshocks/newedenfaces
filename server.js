@@ -28,7 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public'))); // Set static folder to public
 
-
+/**
+ * POST /api/folders
+ * Adds new folder to the database 
+ */
+// app.post('api/folders', function(req, res, next) {
+//
+// }
 /**
  * POST /api/characters
  * Adds new character to the database.
@@ -128,20 +134,20 @@ app.use(function(req, res) {
 /**
  * Socket.io stuff.
  */
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-var onlineUsers = 0;
-
-io.sockets.on('connection', function(socket) {
-  onlineUsers++;
-
-  io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-
-  socket.on('disconnect', function() {
-    onlineUsers--;
-    io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-  });
-});
+ var server = require('http').createServer(app);
+// var io = require('socket.io')(server);
+// var onlineUsers = 0;
+//
+// io.sockets.on('connection', function(socket) {
+//   onlineUsers++;
+//
+//   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+//
+//   socket.on('disconnect', function() {
+//     onlineUsers--;
+//     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+//   });
+// });
 
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
