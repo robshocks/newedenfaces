@@ -103,7 +103,7 @@ class Navbar extends React.Component {
                 <div className="list-group">
                   <a href className="list-group-item">
                     <span className="pull-left m-r thumb-sm">
-                      <img src="img/a0.jpg" alt="..." className="img-circle"></img>
+                      <img src="" alt="..." className="img-circle"></img>
                     </span>
                     <span className="clear block m-b-none">
                       Use awesome animate.css
@@ -127,7 +127,7 @@ class Navbar extends React.Component {
           <li className="dropdown">
             <a href="#" data-toggle="dropdown" className="dropdown-toggle clear" data-toggle="dropdown">
               <span className="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img src="img/a0.jpg" alt="..."></img>
+                <img src="" alt="..."></img>
                 <i className="on md b-white bottom"></i>
               </span>
               <span className="hidden-sm hidden-md">John.Smith</span> <b className="caret"></b>

@@ -38,7 +38,7 @@ class Sidenav extends React.Component {
             <div className="dropdown wrapper">
               <a href="app.page.profile">
                 <span className="thumb-lg w-auto-folded avatar m-t-sm">
-                  <img src="img/a0.jpg" className="img-full" alt="..."></img>
+                  <img src="" className="img-full" alt="..."></img>
                 </span>
               </a>
               <a href="#" data-toggle="dropdown" className="dropdown-toggle hidden-folded">

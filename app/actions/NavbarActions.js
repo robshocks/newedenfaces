@@ -17,7 +17,7 @@ class NavbarActions {
 
   findCharacter(payload) {
     $.ajax({
-      url: '/api/characters/search',
+      url: '',
       data: { name: payload.searchQuery }
     })
       .done((data) => {
@@ -30,7 +30,7 @@ class NavbarActions {
   }
 
   getCharacterCount() {
-    $.ajax({ url: '/api/characters/count' })
+    $.ajax({ url: '' })
       .done((data) => {
         this.actions.getCharacterCountSuccess(data)
       })

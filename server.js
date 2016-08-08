@@ -108,10 +108,10 @@ app.post('/api/characters', function(req, res, next) {
 
 
 
-mongoose.connect(config.database);
-mongoose.connection.on('error', function() {
-	  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
-});
+// mongoose.connect(config.database);
+// mongoose.connection.on('error', function() {
+// 	  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
+// });
 
 // Router Shit starts here
 

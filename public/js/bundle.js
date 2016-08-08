@@ -73,7 +73,7 @@ var FooterActions = function () {
     value: function getTopCharacters() {
       var _this = this;
 
-      $.ajax({ url: '/api/characters/top' }).done(function (data) {
+      $.ajax({ url: '' }).done(function (data) {
         _this.actions.getTopCharactersSuccess(data);
       }).fail(function (jqXhr) {
         _this.actions.getTopCharactersFail(jqXhr);
@@ -118,7 +118,7 @@ var NavbarActions = function () {
       var _this = this;
 
       $.ajax({
-        url: '/api/characters/search',
+        url: '',
         data: { name: payload.searchQuery }
       }).done(function (data) {
         (0, _underscore.assign)(payload, data);
@@ -132,7 +132,7 @@ var NavbarActions = function () {
     value: function getCharacterCount() {
       var _this2 = this;
 
-      $.ajax({ url: '/api/characters/count' }).done(function (data) {
+      $.ajax({ url: '' }).done(function (data) {
         _this2.actions.getCharacterCountSuccess(data);
       }).fail(function (jqXhr) {
         _this2.actions.getCharacterCountFail(jqXhr);
@@ -549,17 +549,6 @@ var Footer = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var leaderboardCharacters = this.state.characters.map(function (character) {
-        return _react2.default.createElement(
-          'li',
-          { key: character.characterId },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/characters/' + character.characterId },
-            _react2.default.createElement('img', { className: 'thumb-md', src: 'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg' })
-          )
-        );
-      });
 
       return _react2.default.createElement(
         'footer',
@@ -750,7 +739,6 @@ var Navbar = function (_React$Component) {
             _reactRouter.Link,
             { to: '/', className: 'navbar-brand text-lt' },
             _react2.default.createElement('i', { className: 'fa fa-rocket' }),
-            _react2.default.createElement('img', { src: 'img/logo.png', alt: '.', className: 'hide' }),
             _react2.default.createElement(
               'span',
               { className: 'hidden-folded m-l-xs' },
@@ -822,7 +810,7 @@ var Navbar = function (_React$Component) {
                       _react2.default.createElement(
                         'span',
                         { className: 'pull-left m-r thumb-sm' },
-                        _react2.default.createElement('img', { src: 'img/a0.jpg', alt: '...', className: 'img-circle' })
+                        _react2.default.createElement('img', { src: '', alt: '...', className: 'img-circle' })
                       ),
                       _react2.default.createElement(
                         'span',
@@ -876,7 +864,7 @@ var Navbar = function (_React$Component) {
                 _react2.default.createElement(
                   'span',
                   { className: 'thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm' },
-                  _react2.default.createElement('img', { src: 'img/a0.jpg', alt: '...' }),
+                  _react2.default.createElement('img', { src: '', alt: '...' }),
                   _react2.default.createElement('i', { className: 'on md b-white bottom' })
                 ),
                 _react2.default.createElement(
@@ -1035,7 +1023,7 @@ var NewFolder = function (_React$Component) {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
-
+      console.log("success submit");
       var name = this.state.name.trim();
       var gender = this.state.gender;
 
@@ -1044,12 +1032,14 @@ var NewFolder = function (_React$Component) {
         this.refs.nameTextField.getDOMNode().focus();
       }
 
-      if (!gender) {
-        _NewFolderActions2.default.invalidGender();
-      }
+      // if (!gender) {
+      //     console.log('No gender bob');
+      //     NewFolderActions.invalidGender();
+      // }
 
       if (name && gender) {
-        _NewFolderActions2.default.addCharacter(name, gender);
+        console.log('name or gender missing');
+        _NewFolderActions2.default.addFolder(name, gender);
       }
     }
   }, {
@@ -1453,7 +1443,7 @@ var Sidenav = function (_React$Component) {
                   _react2.default.createElement(
                     'span',
                     { className: 'thumb-lg w-auto-folded avatar m-t-sm' },
-                    _react2.default.createElement('img', { src: 'img/a0.jpg', className: 'img-full', alt: '...' })
+                    _react2.default.createElement('img', { src: '', className: 'img-full', alt: '...' })
                   )
                 ),
                 _react2.default.createElement(
