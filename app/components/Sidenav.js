@@ -1,32 +1,57 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import FooterStore from '../stores/FooterStore'
-import FooterActions from '../actions/FooterActions';
+import NewFolderStore from '../stores/NewFolderStore'
+import NewFolderActions from '../actions/NewFolderActions';
+
+
+// class FolderList extends React.Component {
+//     constructor(props) {
+//     super(props);
+//         this.state = NewFolderStore.getState();
+//     }
+//     render() {
+//
+// console.log(this.state);
+//         return(
+//             <div>Test Rob</div>
+//         );
+//     }
+// }
 
 class Sidenav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = FooterStore.getState();
+    this.state = NewFolderStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
-    FooterStore.listen(this.onChange);
-    FooterActions.getTopCharacters();
+    NewFolderStore.listen(this.onChange);
+    NewFolderActions.getFolders();
   }
 
   componentWillUnmount() {
-    FooterStore.unlisten(this.onChange);
+    NewFolderStore.unlisten(this.onChange);
   }
 
   onChange(state) {
     this.setState(state);
   }
 
-  render() {
-
-    return (
+render() {
+    console.log(this.state.folders);
+    let folderList = this.state.folders.map(function(folder) {
+    return(
+        <li key={folder._id} className={folder._id}>        
+        <a key={folder._id} href className="auto">      
+          <span key={folder._id} className="font-bold">{folder.name}</span>
+        </a>
+        </li>
+    );        
+    });
+      
+      return (
       
 
 
@@ -89,7 +114,8 @@ class Sidenav extends React.Component {
                       <i className="fa fa-plus-circle icon-large text-primary"></i>
                       <span className="font-bold">New ...</span>
                 </Link>
-                </li>
+                </li>            
+                {folderList}                
             <li>
                 <a href className="auto">      
                   <span className="pull-right text-muted">

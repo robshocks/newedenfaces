@@ -8,15 +8,27 @@ class NewFolderActions {
       'updateName',
       'updateGender',
       'invalidName',
-      'invalidGender'
+      'invalidGender',
+      'getFoldersSuccess',
+      'getFoldersFail'
     );
+  }
+
+  getFolders() {
+    $.ajax({ url: 'api/getfolders'})
+        .done((data) => {
+            this.actions.getFoldersSuccess(data)
+        })
+        .fail((jqXhr) => {
+            this.actions.getFoldersFail(jqHr)
+        });
   }
 
   newFolder(name, gender) {
     $.ajax({
       type: 'POST',
       url: '/api/newfolder',
-      data: { name: name, gender: gender }
+      data: { name: name }
     })
       .done((data) => {
         this.actions.newFolderSuccess(data.message);

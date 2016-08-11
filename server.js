@@ -50,7 +50,7 @@ app.post('/api/newfolder', function(req,res) {
 
 })
 
-app.get('/api/newfolder', function(req,res) {
+app.get('/api/getfolders', function(req,res) {
             Bear.find(function(err, bears) {
                             if (err)
                                 res.send(err);

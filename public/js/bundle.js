@@ -166,22 +166,33 @@ var NewFolderActions = function () {
   function NewFolderActions() {
     _classCallCheck(this, NewFolderActions);
 
-    this.generateActions('newFolderSuccess', 'newFolderFail', 'updateName', 'updateGender', 'invalidName', 'invalidGender');
+    this.generateActions('newFolderSuccess', 'newFolderFail', 'updateName', 'updateGender', 'invalidName', 'invalidGender', 'getFoldersSuccess', 'getFoldersFail');
   }
 
   _createClass(NewFolderActions, [{
+    key: 'getFolders',
+    value: function getFolders() {
+      var _this = this;
+
+      $.ajax({ url: 'api/getfolders' }).done(function (data) {
+        _this.actions.getFoldersSuccess(data);
+      }).fail(function (jqXhr) {
+        _this.actions.getFoldersFail(jqHr);
+      });
+    }
+  }, {
     key: 'newFolder',
     value: function newFolder(name, gender) {
-      var _this = this;
+      var _this2 = this;
 
       $.ajax({
         type: 'POST',
         url: '/api/newfolder',
-        data: { name: name, gender: gender }
+        data: { name: name }
       }).done(function (data) {
-        _this.actions.newFolderSuccess(data.message);
+        _this2.actions.newFolderSuccess(data.message);
       }).fail(function (jqXhr) {
-        _this.actions.newFolderFail(jqXhr.responseJSON.message);
+        _this2.actions.newFolderFail(jqXhr.responseJSON.message);
       });
     }
   }]);
@@ -1037,9 +1048,9 @@ var NewFolder = function (_React$Component) {
       //     NewFolderActions.invalidGender();
       // }
 
-      if (name && gender) {
+      if (name) {
         console.log('name or gender missing');
-        _NewFolderActions2.default.addFolder(name, gender);
+        _NewFolderActions2.default.newFolder(name);
       }
     }
   }, {
@@ -1047,7 +1058,7 @@ var NewFolder = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'form',
-        { role: 'form' },
+        { role: 'form', onSubmit: this.handleSubmit.bind(this) },
         _react2.default.createElement(
           'div',
           { className: 'form-group ' + this.state.nameValidationState },
@@ -1373,13 +1384,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _FooterStore = require('../stores/FooterStore');
+var _NewFolderStore = require('../stores/NewFolderStore');
 
-var _FooterStore2 = _interopRequireDefault(_FooterStore);
+var _NewFolderStore2 = _interopRequireDefault(_NewFolderStore);
 
-var _FooterActions = require('../actions/FooterActions');
+var _NewFolderActions = require('../actions/NewFolderActions');
 
-var _FooterActions2 = _interopRequireDefault(_FooterActions);
+var _NewFolderActions2 = _interopRequireDefault(_NewFolderActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1389,6 +1400,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// class FolderList extends React.Component {
+//     constructor(props) {
+//     super(props);
+//         this.state = NewFolderStore.getState();
+//     }
+//     render() {
+//
+// console.log(this.state);
+//         return(
+//             <div>Test Rob</div>
+//         );
+//     }
+// }
+
 var Sidenav = function (_React$Component) {
   _inherits(Sidenav, _React$Component);
 
@@ -1397,7 +1422,7 @@ var Sidenav = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidenav).call(this, props));
 
-    _this.state = _FooterStore2.default.getState();
+    _this.state = _NewFolderStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
     return _this;
   }
@@ -1405,13 +1430,13 @@ var Sidenav = function (_React$Component) {
   _createClass(Sidenav, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      _FooterStore2.default.listen(this.onChange);
-      _FooterActions2.default.getTopCharacters();
+      _NewFolderStore2.default.listen(this.onChange);
+      _NewFolderActions2.default.getFolders();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      _FooterStore2.default.unlisten(this.onChange);
+      _NewFolderStore2.default.unlisten(this.onChange);
     }
   }, {
     key: 'onChange',
@@ -1421,6 +1446,22 @@ var Sidenav = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.state.folders);
+      var folderList = this.state.folders.map(function (folder) {
+        return _react2.default.createElement(
+          'li',
+          { key: folder._id, className: folder._id },
+          _react2.default.createElement(
+            'a',
+            { key: folder._id, href: true, className: 'auto' },
+            _react2.default.createElement(
+              'span',
+              { key: folder._id, className: 'font-bold' },
+              folder.name
+            )
+          )
+        );
+      });
 
       return _react2.default.createElement(
         'aside',
@@ -1557,6 +1598,7 @@ var Sidenav = function (_React$Component) {
                     )
                   )
                 ),
+                folderList,
                 _react2.default.createElement(
                   'li',
                   null,
@@ -1638,7 +1680,7 @@ var Sidenav = function (_React$Component) {
 
 exports.default = Sidenav;
 
-},{"../actions/FooterActions":2,"../stores/FooterStore":19,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+},{"../actions/NewFolderActions":4,"../stores/NewFolderStore":21,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1953,9 +1995,21 @@ var NewFolderStore = function () {
     this.helpBlock = '';
     this.nameValidationState = '';
     this.genderValidationState = '';
+    this.folders = [];
   }
 
   _createClass(NewFolderStore, [{
+    key: 'onGetFoldersSuccess',
+    value: function onGetFoldersSuccess(data) {
+      this.folders = data.slice(0, 5);
+    }
+  }, {
+    key: 'onGetFoldersFail',
+    value: function onGetFoldersFail(jqXhr) {
+      // Handle multiple response formats, fallback to HTTP status code number.
+      toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+    }
+  }, {
     key: 'onNewFolderSuccess',
     value: function onNewFolderSuccess(successMessage) {
       this.nameValidationState = 'has-success';

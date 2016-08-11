@@ -3,6 +3,8 @@ import NewFolderStore from '../stores/NewFolderStore';
 import NewFolderActions from '../actions/NewFolderActions';
 import {Link} from 'react-router';
 
+
+
 class NewFolder extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +26,9 @@ class NewFolder extends React.Component {
   
    handleSubmit(event) {
     event.preventDefault();
-console.log("success submit");  
-     var name = this.state.name.trim();
-     var gender = this.state.gender;
+    console.log("success submit");  
+    var name = this.state.name.trim();
+    var gender = this.state.gender;
   
      if (!name) {
        NewFolderActions.invalidName();
@@ -38,16 +40,16 @@ console.log("success submit");
      //     NewFolderActions.invalidGender();
      // }
   
-     if (name && gender) {
+     if (name) {
          console.log('name or gender missing');
-         NewFolderActions.addFolder(name, gender);
+         NewFolderActions.newFolder(name);
      }
    }
 
   render() {
     return (
 
-            <form role="form">
+            <form role="form" onSubmit={this.handleSubmit.bind(this)}>
              <div className={'form-group ' + this.state.nameValidationState}>
                     <label>Folder Name</label>                
                      <input type='text' className='form-control' ref='nameTextField' value={this.state.name}
