@@ -5,19 +5,51 @@ import NewFolderStore from '../stores/NewFolderStore'
 import NewFolderActions from '../actions/NewFolderActions';
 
 
-// class FolderList extends React.Component {
-//     constructor(props) {
-//     super(props);
-//         this.state = NewFolderStore.getState();
-//     }
-//     render() {
-//
-// console.log(this.state);
-//         return(
-//             <div>Test Rob</div>
-//         );
-//     }
-// }
+class FolderList extends React.Component {
+    constructor(props) {
+    super(props);
+        this.state = NewFolderStore.getState();
+
+    this.onChange = this.onChange.bind(this);
+    }
+
+  componentDidMount() {
+    NewFolderStore.listen(this.onChange);
+    NewFolderActions.getFolders();
+  }
+
+
+  componentWillUnmount() {
+    NewFolderStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+    render() {
+
+console.log(this.state.folders + 'FlderList');
+  return(
+              
+      <div>
+              
+      {this.state.folders.map(function(folder) {
+                                                       
+      return ( 
+
+          <li key={folder._id} className={folder._id}>        
+            <Link to={'/folder/'+ folder.name} key={folder._id} href className="auto">      
+              <span key={folder._id} className="font-bold">{folder.name}</span>
+            </Link>
+          </li>
+        );                                              
+      })}
+      </div>
+  
+  );
+  }
+}
 
 class Sidenav extends React.Component {
   constructor(props) {
@@ -43,11 +75,19 @@ render() {
     console.log(this.state.folders);
     let folderList = this.state.folders.map(function(folder) {
     return(
-        <li key={folder._id} className={folder._id}>        
-        <a key={folder._id} href className="auto">      
-          <span key={folder._id} className="font-bold">{folder.name}</span>
-        </a>
-        </li>
+        
+
+       <li key={folder._id} className="nav {folder._id}">
+            <Link to={'/folder/new'} key={folder._id} href className="auto">    
+            <span key={folder._id} className="font-bold">{folder.name}</span>
+            </Link>    
+          </li>  
+
+
+
+
+
+        
     );        
     });
       
@@ -115,35 +155,30 @@ render() {
                       <span className="font-bold">New ...</span>
                 </Link>
                 </li>            
-                {folderList}                
-            <li>
-                <a href className="auto">      
-                  <span className="pull-right text-muted">
-                    <i className="fa fa-fw fa-angle-right text"></i>
-                    <i className="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                  <i className="fa fa-folder icon text-primary"></i>
-                  <span className="font-bold">Folder</span>
-                </a>
-                <ul className="nav nav-sub dk">
-                  <li className="nav-sub-header">
-                    <a href>
-                      <span>Dashboard</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html">
-                      <span>Dashboard v1</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="dashboard.html">
-                      <b className="label bg-info pull-right">N</b>
-                      <span>Dashboard v2</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+            
+<li> 
+        <a href="#" className="auto" data-toggle="collapse" data-target="#demo">
+        <span className="pull-right text-muted">
+          <i className="fa fa-fw fa-angle-right text"></i>
+          <i className="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+          <i className="fa fa-folder icon text-primary"></i>
+        <span className="font-bold">Folder Drop</span>
+        </a>
+        <ul id="demo" className="nav collapse">
+         <FolderList/>
+        </ul>            
+      </li>
+
+
+           
+     
+     
+
+
+
+              
+
 
             </ul>
           </nav>
