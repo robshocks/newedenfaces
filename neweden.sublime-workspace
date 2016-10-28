@@ -1,0 +1,678 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"app",
+				"applogfile"
+			],
+			[
+				"all",
+				"all_projects"
+			],
+			[
+				"project",
+				"PROJECT_PATH"
+			],
+			[
+				"DATA",
+				"DATABASE_PATH"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1680,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/index.html",
+			"settings":
+			{
+				"buffer_size": 1803,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 4209,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/stylesheets/main_delete.less",
+			"settings":
+			{
+				"buffer_size": 189,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\n@import '../../bower_components/bootstrap/less/bootstrap';\n@import '../../bower_components/toastr/toastr';\n@import (less) '../../bower_components/magnific-popup/dist/magnific-popup.css';\n\n/*\n * Bootstrap overrides.\n */\n@body-bg: #f0f3f4;\n@text-color: #58666f;\n@font-family-base: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n@link-color: #363f34;\n@link-hover-color: #141718;\n\n@navbar-default-bg: #fff;\n@navbar-default-link-color: #353f44;\n@navbar-default-link-hover-bg: #f6f7f7;\n@navbar-default-link-active-bg: #f6f7f7;\n\n@btn-default-color: #58666e;\n@btn-default-border: #dee5e7;\n\n@btn-primary-color: #fff;\n@btn-primary-bg: #7266bb;\n@btn-primary-border: #7266bb;\n\n@btn-success-color: #fff;\n@btn-success-bg: #27d24b;\n@btn-success-border: #27d24b;\n\n@btn-info-color: #fff;\n@btn-info-bg: #23b7f5;\n@btn-info-border: #23b7f5;\n\n@btn-warning-color: #fff;\n@btn-warning-bg: #fac732;\n@btn-warning-border: #fac732;\n\n@btn-danger-color: #fff;\n@btn-danger-bg: #f15051;\n@btn-danger-border: #f15051;\n\n@panel-default-border: #dee5e7;\n@panel-border-radius: 2px;\n@panel-default-heading-bg: #f6f8f8;\n\n@screen-sm: 800px;\n\nhtml {\n  position: relative;\n  min-height: 100%;\n}\n\nbody {\n  margin-bottom: 220px;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  color: #fff;\n  background-color: #3b3f51;\n}\n\nfooter a {\n  color: #fff;\n  text-decoration: underline;\n\n  &:hover,\n  &:focus {\n    color: #fff;\n    text-decoration: none;\n  }\n}\n\nfooter .thumb-md {\n  border: 1px solid rgba(255,255,255,.15);\n  transition: border .1s linear;\n\n  &:hover {\n    border-color: rgba(255,255,255,.3);\n  }\n}\n\n.badge-danger {\n  color: #fff;\n  background-color: #f05150;\n}\n\n.badge-up {\n  position: relative;\n  top: -10px;\n  padding: 2px 5px;\n}\n\n//.navbar-form .input-group-btn .btn-default {\n//  padding: 9px 12px;\n//}\n\n.input-group-btn:last-child > .btn,\n.input-group-btn:last-child > .btn-group {\n  margin-left: 0;\n  border-left: 0;\n}\n\n/*\n * Character profile page styles.\n */\n\n.profile {\n  color: #fff;\n  background-size: cover;\n}\n\n.profile.amarr {\n  background-image: url('/img/amarr_bg.jpg');\n}\n\n.profile.caldari {\n  background-image: url('/img/caldari_bg.jpg');\n}\n\n.profile.gallente {\n  background-image: url('/img/gallente_bg.jpg');\n}\n\n.profile.minmatar {\n  background-image: url('/img/minmatar_bg.jpg');\n}\n\n.profile footer {\n  color: #fff;\n  background: transparent;\n  border-top: 1px solid rgba(255,255,255,.15);\n}\n\n.profile .navbar-default {\n  background-color: transparent;\n  border-bottom: 1px solid rgba(255,255,255,.15);\n  box-shadow: none;\n}\n\n.profile .navbar-default .navbar-brand {\n  color: #fff;\n}\n\n\n.profile .form-control {\n  color: #fff;\n  background: rgba(255,255,255,.15);\n  border-color: rgba(255,255,255,.15);\n  border-right: 0;\n\n  &:focus {\n    border-color: rgba(255,255,255,.3);\n    box-shadow: inset 0 1px 1px rgba(0,0,0,.055),0 0 8px rgba(255,255,255,.3);\n  }\n}\n\n.profile .input-group-btn:last-child > .btn {\n  margin-left: 0;\n}\n\n.profile .btn-default {\n  color: #fff;\n  background-color: rgba(255,255,255,.15);\n  border-color: rgba(255,255,255,.15);\n  transition: background-color .3s;\n\n  &:focus,\n  &:hover {\n    color: #fff;\n    background-color: rgba(255,255,255,.3);\n  }\n}\n\n\n.profile .tri {\n  border-top-color: #fff;\n\n  &.invert {\n    border-bottom-color: #fff;\n  }\n}\n\n.profile .navbar-default .navbar-nav > .open > a,\n.profile .navbar-default .navbar-nav > .open > a:hover,\n.profile .navbar-default .navbar-nav > .open > a:focus {\n  background-color: rgba(255,255,255,.15);\n}\n\n.profile .navbar-default .navbar-nav > li > a:hover,\n.profile .navbar-default .navbar-nav > li > a:focus {\n  color: #fff;\n  background-color: rgba(255,255,255,.15);\n}\n\n.profile .navbar-default .navbar-nav > li > a {\n  color: #fff;\n}\n\n.profile footer .col-sm-5 {\n  border-right: 1px solid rgba(255,255,255,.15);\n}\n\n\n.table {\n  font-size: inherit;\n}\n\n.table > thead > tr > th {\n  padding: 8px 15px;\n  border-bottom: 1px solid #eaeef0;\n}\n\n.table > tbody > tr > td {\n  padding: 8px 15px;\n  border-top: 1px solid #eaeef0;\n}\n\n.table-striped > tbody > tr:nth-of-type(odd) {\n  background-color: #f9f9f9;\n}\n\n.list-group {\n  border-radius: 2px;\n}\n\n.list-group .list-group-item {\n  margin-bottom: 5px;\n  border-radius: 3px;\n}\n\n.list-group-item:hover,\n.list-group-item:focus {\n  background-color: #f6f8f8;\n}\n\n.thumb-md {\n  display: inline-block;\n  width: 64px;\n}\n\n.thumb-lg {\n  display: inline-block;\n  width: 96px;\n  margin-right: 15px;\n}\n\n.thumb-lg img {\n  height: auto;\n  max-width: 100%;\n  vertical-align: middle;\n}\n\n.position {\n  font-size: 40px;\n  font-weight: bold;\n  color: #ddd;\n  margin-right: 5px;\n  line-height: 96px;\n}\n\n.btn {\n  font-weight: 500;\n  border-radius: 2px;\n  outline: 0 !important;\n}\n\n.btn-addon i {\n  position: relative;\n  float: left;\n  width: 34px;\n  height: 34px;\n  margin: -6px -12px;\n  margin-right: 12px;\n  line-height: 34px;\n  text-align: center;\n  background-color: rgba(0,0,0,.1);\n  border-radius: 2px 0 0 2px;\n}\n\n.btn-addon i.pull-right {\n  margin-right: -12px;\n  margin-left: 12px;\n  border-radius: 0 2px 2px 0;\n}\n\n.btn-addon.btn-sm i.pull-right {\n  margin-right: -10px;\n  margin-left: 10px;\n}\n\n.btn-default {\n  box-shadow: 0 1px 1px rgba(91,91,91,.1);\n}\n\n.navbar {\n  border: 0;\n  box-shadow: 0 2px 2px rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);\n}\n\n.navbar-default .navbar-brand {\n  margin-left: 40px;\n  font-size: 20px;\n  font-weight: 700;\n}\n\n.dropdown-menu {\n  box-shadow: 0 2px 6px rgba(0,0,0,.1);\n}\n\n.dropdown-submenu {\n  position: relative;\n}\n\n.dropdown-submenu > .dropdown-menu {\n  top: 0;\n  left: 100%;\n  margin-top: 0;\n  margin-left: 1px;\n  border-radius: 0 6px 6px 6px;\n}\n\n.dropdown-submenu:hover > .dropdown-menu {\n  display: block;\n}\n\n.dropdown-submenu > a:after {\n  display: block;\n  content: '';\n  float: right;\n  width: 0;\n  height: 0;\n  border: 5px solid transparent;\n  border-right-width: 0;\n  border-left-color: #353f44;\n  margin-top: 5px;\n  margin-right: -10px;\n}\n\n.panel {\n  box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n\n.panel-default > .panel-heading {\n  color: #333;\n  font-weight: 700;\n  border-color: #edf2f2;\n}\n\n.dropdown-submenu.pull-left {\n  float: none;\n}\n\n.dropdown-submenu.pull-left > .dropdown-menu {\n  left: -100%;\n  margin-left: 10px;\n  border-radius: 6px 0 6px 6px;\n}\n\n.form-control {\n  border-color: #cfdadc;\n  border-radius: 2px;\n\n  &:focus {\n    border-color: #24b7e4;\n    box-shadow: none;\n  }\n}\n\n.thumbnail {\n  background-color: #fff;\n  padding: 0;\n  border-radius: 2px;\n  border-color: #dee5e7;\n  box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n\n.thumbnail img {\n  padding: 6px;\n  border-radius: 2px 2px 0 0;\n  border: 0;\n  background-color: #fff;\n  cursor: pointer;\n  transition: background-color 0.2s;\n\n  &:hover {\n    background-color: @btn-info-bg;\n  }\n  &:active {\n    position: relative;\n    top: 2px;\n  }\n}\n\n.form-control {\n  box-shadow: none;\n}\n\nlabel {\n  font-weight: normal;\n}\n\n\n.profile-img {\n  position: relative;\n  margin-bottom: 20px;\n  float: left;\n  width: 256px;\n  height: 256px;\n  box-shadow: 0 2px 25px rgba(0,0,0,.25);\n}\n\n.profile-info {\n  margin: 0 0 20px 286px;\n  max-width: 405px;\n  color: #fff;\n}\n\n.btn-transparent {\n  border: 1px solid white;\n  border-radius: 3px;\n  padding: 10px 20px;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  background-color: transparent;\n  box-shadow: none;\n  transition: background-color .3s;\n\n  &:focus,\n  &:hover {\n    color: #fff;\n    background-color: rgba(255,255,255,.3);\n  }\n}\n\n.profile-stats {\n  margin: 30px 0 30px 0;\n  padding: 20px 0;\n  border-top: 1px solid #2098ca;\n  border-bottom: 1px solid #2098ca;\n  border-top: 1px solid rgba(255,255,255,.15);\n  border-bottom: 1px solid rgba(255,255,255,.15)\n}\n\n\n@media (max-width: 510px) {\n  .profile-stats {\n    font-size: 12px\n  }\n}\n\n@media (max-width: 360px) {\n  .profile-stats {\n    padding: 10px 0\n  }\n}\n\n.profile-stats {\n  display: block;\n  color: #fff\n}\n\n.profile-stats ul {\n  list-style-type: none\n}\n\n.profile-stats li {\n  position: relative;\n  float: left;\n  width: 33.3%;\n  font-size: 16px;\n  line-height: 19px;\n  text-align: center;\n  overflow: hidden\n}\n\n@media (max-width: 360px) {\n  .profile-stats li {\n    font-size: 10px\n  }\n}\n\n.profile-stats li .stats-number {\n  display: block;\n  margin-bottom: 15px;\n  font-size: 40px;\n  font-weight: 600;\n  line-height: 40px\n}\n\n@media (max-width: 360px) {\n  .profile-stats li .stats-number {\n    margin-bottom: 5px;\n    font-size: 34px\n  }\n}\n\n.profile-stats li:first-child:after {\n  content: '';\n  position: absolute;\n  display: block;\n  top: 50%;\n  right: 0;\n  margin-top: -27px;\n  width: 1px;\n  height: 55px;\n  background: rgba(255,255,255,.15)\n}\n\n.profile-stats li:last-child:before {\n  content: '';\n  position: absolute;\n  display: block;\n  top: 50%;\n  left: 0;\n  margin-top: -27px;\n  width: 1px;\n  height: 55px;\n  background: rgba(255,255,255,.15)\n}\n\n.profile-stats li.last-child:before {\n  background: #fff\n}\n\n.radio {\n  margin-bottom: 10px;\n  margin-top: 10px;\n  padding-left: 20px;\n}\n\n.radio-inline + .radio-inline {\n  margin-top: 10px;\n}\n\n.radio-inline,\n.checkbox-inline {\n  cursor: default;\n}\n\n.radio label {\n  display: inline-block;\n  cursor: pointer;\n  position: relative;\n  padding-left: 5px;\n  margin-right: 10px;\n}\n\n.radio label:before {\n  content: '';\n  display: inline-block;\n  width: 17px;\n  height: 17px;\n  margin-left: -20px;\n  position: absolute;\n  left: 0;\n  background-color: #fff;\n  border: 1px solid #d0d0d0;\n}\n\n.radio label:before {\n  bottom: 2.5px;\n  border-radius: 100px;\n  transition: border .2s 0s cubic-bezier(.45,.04,.22,1.30);\n}\n\n.radio input[type=radio]:checked + label:before {\n  border-width: 5px;\n}\n\n.radio input[type=radio] {\n  display: none;\n}\n\n.radio input[type=radio][disabled] + label {\n  opacity: .65;\n}\n\n.radio input[type=radio]:checked + label:before {\n  border-color: #10cebd;\n}\n\n.animated {\n  animation-fill-mode: both;\n  animation-duration: 1s;\n}\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.fadeInUp {\n  animation-name: fadeInUp;\n}\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n.fadeIn {\n  animation-name: fadeIn;\n}\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n\n.fadeOut {\n  animation-name: fadeOut;\n}\n\n@keyframes flipInX {\n  0% {\n    transform: perspective(800px) rotate3d(1,0,0,90deg);\n    transition-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    transform: perspective(800px) rotate3d(1,0,0,-20deg);\n    transition-timing-function: ease-in;\n  }\n\n  60% {\n    transform: perspective(800px) rotate3d(1,0,0,10deg);\n    opacity: 1;\n  }\n\n  80% {\n    transform: perspective(800px) rotate3d(1,0,0,-5deg);\n  }\n\n  100% {\n    transform: perspective(800px);\n  }\n}\n\n.flipInX {\n  backface-visibility: visible !important;\n  animation-name: flipInX;\n}\n\n@keyframes flipOutX {\n  0% {\n    transform: perspective(400px);\n  }\n\n  30% {\n    transform: perspective(400px) rotate3d(1,0,0,-20deg);\n    opacity: 1;\n  }\n\n  100% {\n    transform: perspective(400px) rotate3d(1,0,0,90deg);\n    opacity: 0;\n  }\n}\n\n.flipOutX {\n  animation-name: flipOutX;\n  backface-visibility: visible !important;\n}\n\n@keyframes pulse {\n  0% {\n    opacity: 1;\n  }\n  16.666% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n\n@keyframes shake {\n  0%, 100% {\n    transform: translate3d(0, 0, 0);\n  }\n\n  10%, 30%, 50%, 70%, 90% {\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  20%, 40%, 60%, 80% {\n    transform: translate3d(10px, 0, 0);\n  }\n}\n\n.shake {\n  animation-name: shake;\n}\n\n@tricolor: @link-color;\n@triw: 10px;\n@trih: @triw*0.9;\n\n.triangles {\n  position: absolute;\n  top: 25px;\n  left: 30px;\n  height: @trih * 3;\n  width: @triw * 3;\n  transform: translate(-50%, -50%);\n  opacity: 0;\n}\n\n.navbar-brand:hover .tri {\n  animation-play-state: paused;\n}\n\n.tri {\n  position: absolute;\n  animation: pulse 750ms ease-in infinite;\n  border-top: @trih solid @tricolor;\n  border-left: @triw/2 solid transparent;\n  border-right: @triw/2 solid transparent;\n  border-bottom: 0;\n\n  &.invert {\n    border-top: 0;\n    border-bottom: @trih solid @tricolor;\n    border-left: @triw/2 solid transparent;\n    border-right: @triw/2 solid transparent;\n  }\n  &:nth-child(1) {\n    left: @triw;\n  }\n  &:nth-child(2) {\n    left: @triw/2;\n    top: @trih;\n    animation-delay: -125ms;\n  }\n  &:nth-child(3) {\n    left: @triw;\n    top: @trih;\n  }\n  &:nth-child(4) {\n    left: @triw*1.5;\n    top: @trih;\n    animation-delay: -625ms;\n  }\n  &:nth-child(5) {\n    top: @trih*2;\n    animation-delay: -250ms;\n  }\n  &:nth-child(6) {\n    top: @trih*2;\n    left: @triw/2;\n    animation-delay: -250ms;\n  }\n  &:nth-child(7) {\n    top: @trih*2;\n    left: @triw;\n    animation-delay: -375ms;\n  }\n  &:nth-child(8) {\n    top: @trih*2;\n    left: @triw*1.5;\n    animation-delay: -500ms;\n  }\n  &:nth-child(9) {\n    top: @trih*2;\n    left: @triw*2;\n    animation-delay: -500ms;\n  }\n}\n",
+			"settings":
+			{
+				"buffer_size": 12894,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/stylesheets/less/app.less",
+			"settings":
+			{
+				"buffer_size": 540,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 107.0,
+		"selected_items":
+		[
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"fol",
+				"Project: Add Folder"
+			],
+			[
+				"x",
+				"Set Syntax: XML"
+			],
+			[
+				"projec",
+				"Project: Add Folder"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"saves",
+				"Project: Save As"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/usr/local/locproj/newedenfaces/public/css/main_old.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/boostling/html/css/font.css",
+		"/usr/local/locproj/webgldemo/webgl-experiments/01-rotating-mesh/marmelab4.json",
+		"/usr/local/locproj/webgldemo/webgl-experiments/01-rotating-mesh/marmelab.json",
+		"/usr/local/locproj/webgldemo/webgl-experiments/01-rotating-mesh/light.json",
+		"/Users/robshocks/Downloads/help.webex.com_el-GR_laboy2kq_1476268655781.xlf",
+		"/usr/local/locproj/webgldemo/webgl-experiments/01-rotating-mesh/marmelab2.json",
+		"/usr/local/locproj/webgldemo/webgl-experiments/01-rotating-mesh/marmelab.blend",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/JS/langswitch backup oct16",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/TUR_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/THI_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/ROM_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/PRB_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/KOR_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/RUS_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/PRE_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/GER_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/FRE_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/SPE_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/ITA_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/HUN_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/GRK_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/DUT_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/CTH_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/ARB_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/FRC_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/POL_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/CZH_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/SVE_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/DAN_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/LIT_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/LAT_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/SLK_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/CHT_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/CHS_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/JPN_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/btosports/SSL/wildcard_btosports_ssl.ssl",
+		"/Users/robshocks/OneDriveBusiness/Clients/btosports/SSL/STAR.btosports.com.key",
+		"/Users/robshocks/OneDriveBusiness/Clients/TFH/SSL/e.thefloatinghospital.org.csr",
+		"/Users/robshocks/OneDriveBusiness/Clients/TFH/SSL/latest/es_thefloatinghospital_org.csr",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Sep16/help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf/SPC_help.webex.com_ca-CT_laboy2kq_1472143359313_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Gulfstream/xliff/export/www.gulfstream.com_pt-BR_hckfckz5_1471360910843.xlf",
+		"/usr/local/locproj/frontstrap/html/dashboard.html",
+		"/usr/local/locproj/newedenfaces/app/components/Sidenav.js",
+		"/Users/robshocks/OneDriveBusiness/Clients/sojern/XLIFF/import/8Aug16/SPE_www.sojern.com_es-ES_o6zwsgps_1468254117379.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CRO_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SER_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CZH_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/JPN_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/KOR_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SPC_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SLN_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/PRB_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/PRE_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/GRK_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/NOR_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/RUS_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/DAN_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/ITA_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SVE_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/GER_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CTH_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CHS_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CHT_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/DUT_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/HUN_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/THI_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/TUR_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SPE_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/FIN_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/ARB_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/POL_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/LIT_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/LAT_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/EST_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/SLK_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/ROM_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/FRC_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/HEB_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4Jul16/help.webex.com_es-ES_laboy2kq_1466680389504_updated/CAT_help.webex.com_es-ES_laboy2kq_1466680389504_updated.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/THI_help.webex.com_th-TH_laboy2kq_1461763133268.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/SVE_help.webex.com_sv-SE_laboy2kq_1461763130197.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/SPE_help.webex.com_es-ES_laboy2kq_1461763131299.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/SPC_help.webex.com_es-CO_laboy2kq_1461763133053.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/RUS_help.webex.com_ru-RU_laboy2kq_1461763130641.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/PRE_help.webex.com_pt-PT_laboy2kq_1461763130443.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/PRB_help.webex.com_pt-BR_laboy2kq_1461763133942.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/NOR_help.webex.com_no-NO_laboy2kq_1461763130898.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/KOR_help.webex.com_ko-KR_laboy2kq_1461763133755.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/JPN_help.webex.com_ja-JP_laboy2kq_1461763132449.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/ITA_help.webex.com_it-IT_laboy2kq_1461763129992.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/HUN_help.webex.com_hu-HU_laboy2kq_1461763135191.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/GER_help.webex.com_de-DE_laboy2kq_1461763129799.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/FRE_help.webex.com_fr-FR_laboy2kq_1461763131947.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/FIN_help.webex.com_fi-FI_laboy2kq_1461763132600.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/DAN_help.webex.com_da-DK_laboy2kq_1461763132297.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/CZH_help.webex.com_cs-CZ_laboy2kq_1461763134061.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/CRO_help.webex.com_hr-HR_laboy2kq_1461763134338.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/CHT_help.webex.com_zh-TW_laboy2kq_1461763131069.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/CHS_help.webex.com_zh-CN_laboy2kq_1461763133569.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/4May16/Browse all English Content String/ARB_help.webex.com_ar-SA_laboy2kq_1461763129052.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/sojern/XLIFF/export/3May16/www.sojern.com_fr-FR_o6zwsgps_1462290353587.xlf/www.sojern.com_fr-FR_o6zwsgps_1462290353587_part0001.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/SLN_help.webex.com_sl-SI_laboy2kq_1459249987951.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/SLK_help.webex.com_sk-SK_laboy2kq_1459249987503.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/GRK_help.webex.com_el-GR_laboy2kq_1459249986180.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/FIN_help.webex.com_fi-FI_laboy2kq_1459249984888.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/EST_help.webex.com_et-EE_laboy2kq_1459249985295.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/CZH_help.webex.com_cs-CZ_laboy2kq_1459249986877.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/CAT_help.webex.com_ca-CT_laboy2kq_1459249987234.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/12April16/help.webex.com_laboy2kq_1459249984749/BUL_help.webex.com_bg-BG_laboy2kq_1459249984749.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/APP/XLIFF/Import/CHS_www.andersonpower.com_zh-CN_q1n07bam_1458050738678_1.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/APP/XLIFF/Import/CHS_www.andersonpower.com_zh-CN_q1n07bam_1458144337382.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Mar16/All_Langs_help.webex.com_laboy2kq_1458142574490.xlf/help.webex.com_da-DK_laboy2kq_1458142574313.xlf/DAN_help.webex.com_da-DK_laboy2kq_1458142574313.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Mar16/All_Langs_help.webex.com_laboy2kq_1458142574490.xlf/help.webex.com_ar-SA_laboy2kq_1458142574490.xlf/ARB_help.webex.com_ar-SA_laboy2kq_1458142574490.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/21Mar16/All_Langs_help.webex.com_laboy2kq_1458142574490.xlf/help.webex.com_ar-SA_laboy2kq_1458142574490.xlf/Skeleton_help.webex.com_ar-SA_laboy2kq_1458142574490.xlf.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/import new/help.webex.com_de-DE_laboy2kq_1457564458673/help.webex.com_de-DE_laboy2kq_1457564458673.xlf/GER_help.webex.com_de-DE_laboy2kq_1457564458673.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/Import/5mar16/JPN_help.webex.com_ja-JP_laboy2kq_1457307747597.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/innerworkings/XLIFF/translated/SPC_www.inwk.com_es-ES_45ahr9xj_1453468474287.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/JS/proxy_language_switcher.js",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/trans/5mar16/JPN_help.webex.com_ja-JP_laboy2kq_1457307747597.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/untrans/frfr/help.webex.com_fr-FR_laboy2kq_1454056857311.xlf",
+		"/Users/robshocks/OneDriveBusiness/Clients/Cisco/XLIFF/trans/FRE_help.webex.com_fr-FR_laboy2kq_1449855164868_part0000_2.xlf",
+		"/Users/robshocks/Google Drive/Sajan/Clients/TFH/TFH_sitesync_en_es_10Jun15.xlf",
+		"/Users/robshocks/Google Drive/Sajan/Clients/TFH/SPU_TFH_sitesync_en_es_10Jun15.xlf",
+		"/Users/robshocks/Google Drive/Sajan/Clients/Titan/titantool_sitesync_en2es_25Jun15.xliff",
+		"/private/var/folders/j1/swd47tq9355gbs3gw3g_lkkr0000gn/T/fz3temp-1/wp-config.php",
+		"/Users/robshocks/Google Drive/Project Management/Clients/Transatlantic/Valcomelton/valcomelton/translated xlf/DE/Website2.xlf",
+		"/Users/robshocks/Google Drive/Project Management/Clients/brightlines/xliff/protein_world_de_untrans.xliff"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/usr/local/reverbeoroot",
+			"/Users/robshocks/Sites/reverbeo_app/",
+			"/Users/robshocks/Sites/reverbeoroot",
+			"/Users/robshocks/Sites/nobo",
+			"/Users/robshocks/Sites/reverbeoroot/lester_app",
+			"/Users/robshocks/Sites/reverbeoroot/",
+			"/Users/robshocks/Sites/reverbeoroot/lester_app",
+			"/Users/robshocks/Sites/reverbeoroot/",
+			"/Users/robshocks/Sites/reverbeoroot/lester_app",
+			"/Users/robshocks/Sites/reverbeoroot",
+			"/Users/robshocks/Sites/reverbeoboot",
+			"/Users/robshocks/Sites/app_rev_oct14"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ffcdd2 ",
+			"@red-100: ",
+			"btn-addon",
+			"rtl",
+			"card",
+			"easyling",
+			"stats",
+			"dashboard",
+			"<trans-unit id=\"laboy2kq_tm:uDVRbL9KAJpgczW4wtamaFxBO7It4I00JQr4Kf8x3j0=ywh8U1UXveE6sTWVwUnoIyzSE/unkCnKYw/zgNZr5eA=\"",
+			"easyling",
+			"Key Articles",
+			"Cisco Cloud Collaboration Management",
+			"easyling",
+			"FEATURED CONTENT",
+			"we make marketing happen",
+			"Simon Bell",
+			"Quick answers",
+			" Resources",
+			" Resources for new",
+			"Resources for new",
+			"Help Central",
+			"Proxy",
+			"A popular ",
+			"Carribean ",
+			"Carribean Ho",
+			"Great Seeing You",
+			"easyling",
+			"translate=\"no\"",
+			"<x />",
+			"You'll have access",
+			"You'll",
+			"A new survey by Nitro",
+			"Nitro Pro has",
+			"ffdaaeaf24f8e87fe6160af49837483e",
+			"you'll have",
+			"target",
+			"body",
+			"<x />",
+			"<x ctype=\"x-html-br\" ><x />",
+			"ce6b5b24fab3ed0778c399caed796ae5",
+			"ce6b5b24fab3ed0778c399caed84cfc8",
+			"< />",
+			"packaging for Tuff",
+			"packaging for T",
+			"packaging for Tuffband\npackaging for Tuffband\npackaging for Tuffband",
+			"packaging for Tuffband",
+			"Thoriated Tungsten",
+			"Our Pre",
+			"<target state=\"needs-translation\">",
+			"<target state=\"needs-translation\"/>",
+			"ó",
+			"s temperaturas. La vida",
+			"< />",
+			"’",
+			"Piran",
+			"utils.py",
+			"collections.py",
+			"Fragmentmodel",
+			"body",
+			"encode",
+			"xliff.encode",
+			"encode",
+			"publish",
+			"translations",
+			"encode",
+			"model_type",
+			"publish",
+			"https://app3.reverbeo.com/docs/default-source/",
+			"https://app3.reverbeo.com/docs/default-source/by-market-booklets/",
+			"db_exists",
+			"get_model_type",
+			"parse_translated",
+			"parse_xlf",
+			"es_",
+			"COUCHADMIN",
+			"_seq",
+			"ctx.doc.translatable",
+			"remember you",
+			"ctx",
+			"_status",
+			"river_meta",
+			"ctx",
+			"sync",
+			"elastic_update_meta",
+			"sync_es",
+			"no more pages",
+			"prepare_server",
+			"sync",
+			"COUCHDB_SERVER",
+			"db_server",
+			"callback_called",
+			"tidy_redis",
+			"crawl",
+			"elasticsearch_reverbeo",
+			"elastic_update_meta",
+			"ELASTICSEARCH_SERVER",
+			"block",
+			"sync",
+			"json",
+			".json()",
+			"aggs",
+			"query_json",
+			"\"query\"",
+			"_bulk",
+			"-XGET ",
+			"elastic_update_seq",
+			"elastic",
+			"search_server",
+			"db_name",
+			"save_doc",
+			"summarise",
+			"translation_project_summary",
+			"translation_summary",
+			".word_count",
+			"lang_summary",
+			"content-table-wrapper",
+			"#content-table-wrapper",
+			"get_content_table",
+			"vhost_status",
+			"roject.vhost_status",
+			"summarise",
+			"summ_word_count",
+			"abbeylee.net",
+			"merillbrink",
+			"content-table-wrapper",
+			"updateContent",
+			"project.summarise()",
+			"get_content_table"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"sitesync",
+			"",
+			"sitesync",
+			"",
+			"<x ctype=\"x-html-br\" />",
+			"",
+			"<target state=\"translated\">",
+			"<target state=\"translated\">siteInspire - Diseño Web Inspiration</target>",
+			"",
+			"'",
+			"",
+			"hubspot.com",
+			"bg-hubspot1",
+			"06b378",
+			"Robert O'Shaughnessy",
+			"Sajan",
+			"dash_app",
+			"/",
+			"dash_app"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 1680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 413.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/index.html",
+					"settings":
+					{
+						"buffer_size": 1803,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								675,
+								675
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gulpfile.js",
+					"settings":
+					{
+						"buffer_size": 4209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3834,
+								3834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1347.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/stylesheets/main_delete.less",
+					"settings":
+					{
+						"buffer_size": 189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"settings":
+					{
+						"buffer_size": 12894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12894,
+								12894
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12652.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/stylesheets/less/app.less",
+					"settings":
+					{
+						"buffer_size": 540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 281.0,
+	"status_bar_visible": true
+}

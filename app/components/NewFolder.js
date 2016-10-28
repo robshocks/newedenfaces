@@ -3,8 +3,6 @@ import NewFolderStore from '../stores/NewFolderStore';
 import NewFolderActions from '../actions/NewFolderActions';
 import {Link} from 'react-router';
 
-
-
 class NewFolder extends React.Component {
   constructor(props) {
     super(props);

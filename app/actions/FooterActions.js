@@ -1,4 +1,3 @@
-
 import alt from '../alt';
 
 class FooterActions {

@@ -53,9 +53,9 @@ class DisplayFolder extends React.Component {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="panel b-a">
-                                <div className="panel-heading b-b b-light">{this.props.params.folderName}</div>
+                                <div className="panel-heading b-b b-light">Folder Name: {this.props.params.folderName}</div>
                                 <div className="panel-body">
-                                        
+                                       <button type="button" className="btn btn-primary m-b">Create Template</button> 
                            {this.props.children}    
                             </div>
                             </div>

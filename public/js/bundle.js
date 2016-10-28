@@ -44,7 +44,53 @@ var AddCharacterActions = function () {
 
 exports.default = _alt2.default.createActions(AddCharacterActions);
 
-},{"../alt":6}],2:[function(require,module,exports){
+},{"../alt":7}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DisplayFolderActions = function () {
+  function DisplayFolderActions() {
+    _classCallCheck(this, DisplayFolderActions);
+
+    this.generateActions('addCharacterSuccess', 'addCharacterFail', 'updateName', 'updateGender', 'invalidName', 'invalidGender');
+  }
+
+  _createClass(DisplayFolderActions, [{
+    key: 'addCharacter',
+    value: function addCharacter(name, gender) {
+      var _this = this;
+
+      $.ajax({
+        type: 'POST',
+        url: '/api/characters',
+        data: { name: name, gender: gender }
+      }).done(function (data) {
+        _this.actions.addCharacterSuccess(data.message);
+      }).fail(function (jqXhr) {
+        _this.actions.addCharacterFail(jqXhr.responseJSON.message);
+      });
+    }
+  }]);
+
+  return DisplayFolderActions;
+}();
+
+exports.default = _alt2.default.createActions(DisplayFolderActions);
+
+},{"../alt":7}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -86,7 +132,7 @@ var FooterActions = function () {
 
 exports.default = _alt2.default.createActions(FooterActions);
 
-},{"../alt":6}],3:[function(require,module,exports){
+},{"../alt":7}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -145,7 +191,7 @@ var NavbarActions = function () {
 
 exports.default = _alt2.default.createActions(NavbarActions);
 
-},{"../alt":6,"underscore":"underscore"}],4:[function(require,module,exports){
+},{"../alt":7,"underscore":"underscore"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -202,7 +248,7 @@ var NewFolderActions = function () {
 
 exports.default = _alt2.default.createActions(NewFolderActions);
 
-},{"../alt":6}],5:[function(require,module,exports){
+},{"../alt":7}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -248,7 +294,7 @@ var NewLayoutActions = function () {
 
 exports.default = _alt2.default.createActions(NewLayoutActions);
 
-},{"../alt":6}],6:[function(require,module,exports){
+},{"../alt":7}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -263,7 +309,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = new _alt2.default();
 
-},{"alt":"alt"}],7:[function(require,module,exports){
+},{"alt":"alt"}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -436,11 +482,11 @@ var AddCharacter = function (_React$Component) {
 
 exports.default = AddCharacter;
 
-},{"../actions/AddCharacterActions":1,"../stores/AddCharacterStore":18,"react":"react"}],8:[function(require,module,exports){
+},{"../actions/AddCharacterActions":1,"../stores/AddCharacterStore":20,"react":"react"}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -470,34 +516,232 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+    _inherits(App, _React$Component);
 
-  function App() {
-    _classCallCheck(this, App);
+    function App() {
+        _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
-  }
-
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_Navbar2.default, { history: this.props.history }),
-        _react2.default.createElement(_Sidenav2.default, null),
-        this.props.children,
-        _react2.default.createElement(_Footer2.default, null)
-      );
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
     }
-  }]);
 
-  return App;
+    _createClass(App, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_Navbar2.default, { history: this.props.history }),
+                _react2.default.createElement(_Sidenav2.default, null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'app-content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'app-content-body fade-in-up' },
+                        this.props.children
+                    )
+                ),
+                _react2.default.createElement(_Footer2.default, null),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'myModal', className: 'modal fade', role: 'dialog' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-content' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-header bg-primary' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'close', 'data-dismiss': 'modal' },
+                                    '×'
+                                ),
+                                _react2.default.createElement(
+                                    'h4',
+                                    { className: 'modal-title' },
+                                    'Create New'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'btn col-xs-6 col-xs-offset-3  btn-lg text-center btn-primary m-b' },
+                                        'Process Folder'
+                                    ),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'btn col-xs-6 col-xs-offset-3  btn-lg text-center btn-primary m-b' },
+                                        'Process Template'
+                                    ),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'btn col-xs-6 col-xs-offset-3  btn-lg text-center btn-primary m-b' },
+                                        'Run Process'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return App;
 }(_react2.default.Component);
 
 exports.default = App;
 
-},{"./Footer":9,"./Navbar":11,"./Sidenav":15,"react":"react"}],9:[function(require,module,exports){
+},{"./Footer":11,"./Navbar":13,"./Sidenav":17,"react":"react"}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DisplayFolderStore = require('../stores/DisplayFolderStore');
+
+var _DisplayFolderStore2 = _interopRequireDefault(_DisplayFolderStore);
+
+var _DisplayFolderActions = require('../actions/DisplayFolderActions');
+
+var _DisplayFolderActions2 = _interopRequireDefault(_DisplayFolderActions);
+
+var _NewOptions = require('./NewOptions');
+
+var _NewOptions2 = _interopRequireDefault(_NewOptions);
+
+var _NewFolder = require('./NewFolder');
+
+var _NewFolder2 = _interopRequireDefault(_NewFolder);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DisplayFolder = function (_React$Component) {
+  _inherits(DisplayFolder, _React$Component);
+
+  function DisplayFolder(props) {
+    _classCallCheck(this, DisplayFolder);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DisplayFolder).call(this, props));
+
+    _this.state = _DisplayFolderStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(DisplayFolder, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _DisplayFolderStore2.default.listen(this.onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _DisplayFolderStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      event.preventDefault();
+
+      var name = this.state.name.trim();
+      var gender = this.state.gender;
+
+      if (!name) {
+        _DisplayFolderActions2.default.invalidName();
+        this.refs.nameTextField.getDOMNode().focus();
+      }
+
+      if (!gender) {
+        _DisplayFolderActions2.default.invalidGender();
+      }
+
+      if (name && gender) {
+        _DisplayFolderActions2.default.addCharacter(name, gender);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'app-content' },
+        _react2.default.createElement(
+          'div',
+          { className: 'app-content-body fade-in-up' },
+          _react2.default.createElement(
+            'div',
+            { className: 'bg-light lter b-b' },
+            _react2.default.createElement(
+              'div',
+              { className: 'wrapper-md' },
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-lg-6' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'panel b-a' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'panel-heading b-b b-light' },
+                      'Folder Name: ',
+                      this.props.params.folderName
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'panel-body' },
+                      _react2.default.createElement(
+                        'button',
+                        { type: 'button', className: 'btn btn-primary m-b' },
+                        'Create Template'
+                      ),
+                      this.props.children
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return DisplayFolder;
+}(_react2.default.Component);
+
+exports.default = DisplayFolder;
+
+},{"../actions/DisplayFolderActions":2,"../stores/DisplayFolderStore":21,"./NewFolder":14,"./NewOptions":16,"react":"react"}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -588,16 +832,16 @@ var Footer = function (_React$Component) {
 
 exports.default = Footer;
 
-},{"../actions/FooterActions":2,"../stores/FooterStore":19,"react":"react","react-router":"react-router"}],10:[function(require,module,exports){
-'use strict';
+},{"../actions/FooterActions":3,"../stores/FooterStore":22,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -610,31 +854,130 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
+	_inherits(Home, _React$Component);
 
-  function Home() {
-    _classCallCheck(this, Home);
+	function Home() {
+		_classCallCheck(this, Home);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
-  }
+		return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
+	}
 
-  _createClass(Home, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        'Test'
-      );
-    }
-  }]);
+	_createClass(Home, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "temp contain" },
+				_react2.default.createElement(
+					"div",
+					{ className: "bg-light lter b-b wrapper-md" },
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-sm-6 col-xs-12" },
+							_react2.default.createElement(
+								"h1",
+								{ className: "m-n font-thin h3 text-black" },
+								"Processes"
+							),
+							_react2.default.createElement(
+								"small",
+								{ className: "text-muted" },
+								"All processes listed here"
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "wrapper-md" },
+					_react2.default.createElement(
+						"div",
+						{ className: "row m-b" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-sm-5" },
+							_react2.default.createElement(
+								"div",
+								{ className: "input-group" },
+								_react2.default.createElement("input", { type: "text", className: "form-control input-lg", placeholder: "Enter Search Term" }),
+								_react2.default.createElement(
+									"span",
+									{ className: "input-group-btn" },
+									_react2.default.createElement(
+										"button",
+										{ className: "btn btn-primary btn-lg", type: "button" },
+										"Search"
+									)
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: " col-sm-5 list-group-lg list-group-sp" },
+							_react2.default.createElement(
+								"a",
+								{ href: "", className: "list-group-item clearfix m-b" },
+								_react2.default.createElement(
+									"span",
+									{ className: "clear" },
+									_react2.default.createElement(
+										"span",
+										null,
+										"Setup new site for Sitesync"
+									),
+									_react2.default.createElement(
+										"small",
+										{ className: "text-muted clear text-ellipsis" },
+										"Setting up a site for the firt time"
+									)
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: " col-sm-5 list-group-lg list-group-sp" },
+							_react2.default.createElement(
+								"a",
+								{ href: "", className: "list-group-item clearfix m-b" },
+								_react2.default.createElement(
+									"span",
+									{ className: "clear" },
+									_react2.default.createElement(
+										"span",
+										null,
+										"Setup new site for Sitesync"
+									),
+									_react2.default.createElement(
+										"small",
+										{ className: "text-muted clear text-ellipsis" },
+										"Setting up a site for the firt time"
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
 
-  return Home;
+	return Home;
 }(_react2.default.Component);
 
 exports.default = Home;
 
-},{"react":"react"}],11:[function(require,module,exports){
+},{"react":"react"}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -658,8 +1001,6 @@ var _NavbarActions = require('../actions/NavbarActions');
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -759,7 +1100,7 @@ var Navbar = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'collapse pos-rlt navbar-collapse box-shadow bg-white-only' },
+          { className: 'collapse pos-rlt navbar-collapse bg-primary' },
           _react2.default.createElement(
             'div',
             { className: 'nav navbar-nav hidden-xs' },
@@ -768,197 +1109,6 @@ var Navbar = function (_React$Component) {
               { href: '#', className: 'btn no-shadow navbar-btn', 'ui-toggle-className': 'app-aside-folded', target: '.app' },
               _react2.default.createElement('i', { className: 'fa fa-dedent fa-fw text' }),
               _react2.default.createElement('i', { className: 'fa fa-indent fa-fw text-active' })
-            )
-          ),
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav navbar-right' },
-            _react2.default.createElement(
-              'li',
-              { className: 'dropdown' },
-              _react2.default.createElement(
-                'a',
-                { href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle' },
-                _react2.default.createElement('i', { className: 'icon-bell fa-fw' }),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'visible-xs-inline' },
-                  'Notifications'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'badge badge-sm up bg-danger pull-right-xs' },
-                  '2'
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'dropdown-menu w-xl animated fadeInUp' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'panel bg-white' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'panel-heading b-light bg-light' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'You have ',
-                      _react2.default.createElement(
-                        'span',
-                        null,
-                        '2'
-                      ),
-                      ' notifications'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'list-group' },
-                    _react2.default.createElement(
-                      'a',
-                      { href: true, className: 'list-group-item' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'pull-left m-r thumb-sm' },
-                        _react2.default.createElement('img', { src: '', alt: '...', className: 'img-circle' })
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'clear block m-b-none' },
-                        'Use awesome animate.css',
-                        _react2.default.createElement(
-                          'small',
-                          { className: 'text-muted' },
-                          '10 minutes ago'
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: true, className: 'list-group-item' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'clear block m-b-none' },
-                        '1.0 initial released',
-                        _react2.default.createElement(
-                          'small',
-                          { className: 'text-muted' },
-                          '1 hour ago'
-                        )
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'panel-footer text-sm' },
-                    _react2.default.createElement(
-                      'a',
-                      { href: true, className: 'pull-right' },
-                      _react2.default.createElement('i', { className: 'fa fa-cog' })
-                    ),
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#notes', 'data-toggle': 'class:show animated fadeInRight' },
-                      'See all the notifications'
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              { className: 'dropdown' },
-              _react2.default.createElement(
-                'a',
-                _defineProperty({ href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle clear' }, 'data-toggle', 'dropdown'),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm' },
-                  _react2.default.createElement('img', { src: '', alt: '...' }),
-                  _react2.default.createElement('i', { className: 'on md b-white bottom' })
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'hidden-sm hidden-md' },
-                  'John.Smith'
-                ),
-                ' ',
-                _react2.default.createElement('b', { className: 'caret' })
-              ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'dropdown-menu animated fadeInRight w' },
-                _react2.default.createElement(
-                  'li',
-                  { className: 'wrapper b-b m-b-sm bg-light m-t-n-xs' },
-                  _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      '300mb of 500mb used'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'progress progress-xs m-b-none dker' },
-                    _react2.default.createElement('div', { className: 'progress-bar progress-bar-info', 'data-toggle': 'tooltip', 'data-original-title': '50%' })
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { href: true },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'badge bg-danger pull-right' },
-                      '30%'
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      null,
-                      'Settings'
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { 'ui-sref': 'app.page.profile' },
-                    'Profile'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { 'ui-sref': 'app.docs' },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'label bg-info pull-right' },
-                      'new'
-                    ),
-                    'Help'
-                  )
-                ),
-                _react2.default.createElement('li', { className: 'divider' }),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { 'ui-sref': 'access.signin' },
-                    'Logout'
-                  )
-                )
-              )
             )
           )
         )
@@ -971,7 +1121,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":20,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+},{"../actions/NavbarActions":4,"../stores/NavbarStore":23,"react":"react","react-router":"react-router"}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1119,7 +1269,7 @@ var NewFolder = function (_React$Component) {
 
 exports.default = NewFolder;
 
-},{"../actions/NewFolderActions":4,"../stores/NewFolderStore":21,"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
+},{"../actions/NewFolderActions":5,"../stores/NewFolderStore":24,"react":"react","react-router":"react-router"}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1210,36 +1360,67 @@ var NewLayout = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'app-content' },
+        null,
         _react2.default.createElement(
           'div',
-          { className: 'app-content-body fade-in-up' },
+          { className: 'bg-light lter b-b wrapper-md' },
           _react2.default.createElement(
             'div',
-            { className: 'bg-light lter b-b' },
+            { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'wrapper-md' },
+              { className: 'col-sm-6 col-xs-12' },
+              _react2.default.createElement(
+                'h1',
+                { className: 'm-n font-thin h3 text-black' },
+                'New'
+              ),
+              _react2.default.createElement(
+                'small',
+                { className: 'text-muted' },
+                'All processes listed here'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'bg-light wrapper-md' },
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-5' },
               _react2.default.createElement(
                 'div',
-                { className: 'row' },
+                { className: 'panel panel-default' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-lg-6' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'panel b-a' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'panel-heading b-b b-light' },
-                      'Create New ..'
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'panel-body' },
-                      this.props.children
-                    )
-                  )
+                  { className: 'panel-body' },
+                  'Test'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-5' },
+              _react2.default.createElement(
+                'div',
+                { className: 'panel b-a' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'panel-heading b-b b-light' },
+                  'Create New ..'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'panel-body' },
+                  this.props.children
                 )
               )
             )
@@ -1254,7 +1435,7 @@ var NewLayout = function (_React$Component) {
 
 exports.default = NewLayout;
 
-},{"../actions/NewLayoutActions":5,"../stores/NewLayoutStore":22,"./NewFolder":12,"./NewOptions":14,"react":"react"}],14:[function(require,module,exports){
+},{"../actions/NewLayoutActions":6,"../stores/NewLayoutStore":25,"./NewFolder":14,"./NewOptions":16,"react":"react"}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1369,11 +1550,11 @@ var NewOptions = function (_React$Component) {
 
 exports.default = NewOptions;
 
-},{"react":"react","react-router":"react-router"}],15:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1400,287 +1581,316 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// class FolderList extends React.Component {
-//     constructor(props) {
-//     super(props);
-//         this.state = NewFolderStore.getState();
-//     }
-//     render() {
-//
-// console.log(this.state);
-//         return(
-//             <div>Test Rob</div>
-//         );
-//     }
-// }
+var FolderList = function (_React$Component) {
+    _inherits(FolderList, _React$Component);
 
-var Sidenav = function (_React$Component) {
-  _inherits(Sidenav, _React$Component);
+    function FolderList(props) {
+        _classCallCheck(this, FolderList);
 
-  function Sidenav(props) {
-    _classCallCheck(this, Sidenav);
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FolderList).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidenav).call(this, props));
-
-    _this.state = _NewFolderStore2.default.getState();
-    _this.onChange = _this.onChange.bind(_this);
-    return _this;
-  }
-
-  _createClass(Sidenav, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      _NewFolderStore2.default.listen(this.onChange);
-      _NewFolderActions2.default.getFolders();
+        _this.state = _NewFolderStore2.default.getState();
+        _this.onChange = _this.onChange.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      _NewFolderStore2.default.unlisten(this.onChange);
-    }
-  }, {
-    key: 'onChange',
-    value: function onChange(state) {
-      this.setState(state);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      console.log(this.state.folders);
-      var folderList = this.state.folders.map(function (folder) {
-        return _react2.default.createElement(
-          'li',
-          { key: folder._id, className: folder._id },
-          _react2.default.createElement(
-            'a',
-            { key: folder._id, href: true, className: 'auto' },
-            _react2.default.createElement(
-              'span',
-              { key: folder._id, className: 'font-bold' },
-              folder.name
-            )
-          )
-        );
-      });
 
-      return _react2.default.createElement(
-        'aside',
-        { id: 'aside', className: 'app-aside hidden-xs bg-white' },
-        _react2.default.createElement(
-          'div',
-          { className: 'aside-wrap' },
-          _react2.default.createElement(
-            'div',
-            { className: 'navi-wrap' },
-            _react2.default.createElement(
-              'div',
-              { className: 'clearfix hidden-xs text-center hide', id: 'aside-user' },
-              _react2.default.createElement(
+    _createClass(FolderList, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _NewFolderStore2.default.listen(this.onChange);
+            _NewFolderActions2.default.getFolders();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _NewFolderStore2.default.unlisten(this.onChange);
+        }
+    }, {
+        key: 'onChange',
+        value: function onChange(state) {
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            console.log(this.state.folders + 'FlderList');
+            return _react2.default.createElement(
                 'div',
-                { className: 'dropdown wrapper' },
-                _react2.default.createElement(
-                  'a',
-                  { href: 'app.page.profile' },
-                  _react2.default.createElement(
-                    'span',
-                    { className: 'thumb-lg w-auto-folded avatar m-t-sm' },
-                    _react2.default.createElement('img', { src: '', className: 'img-full', alt: '...' })
-                  )
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle hidden-folded' },
-                  _react2.default.createElement(
-                    'span',
-                    { className: 'clear' },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'block m-t-sm' },
-                      _react2.default.createElement(
-                        'strong',
-                        { className: 'font-bold text-lt' },
-                        'John.Smith'
-                      ),
-                      _react2.default.createElement('b', { className: 'caret' })
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'text-muted text-xs block' },
-                      'Art Director'
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'ul',
-                  { className: 'dropdown-menu animated fadeInRight w hidden-folded' },
-                  _react2.default.createElement(
-                    'li',
-                    { className: 'wrapper b-b m-b-sm bg-info m-t-n-xs' },
-                    _react2.default.createElement('span', { className: 'arrow top hidden-folded arrow-info' }),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _react2.default.createElement(
-                        'p',
-                        null,
-                        '300mb of 500mb used'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'progress progress-xs m-b-none dker' },
-                      _react2.default.createElement('div', { className: 'progress-bar bg-white', 'data-toggle': 'tooltip', 'data-original-title': '50%' })
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: true },
-                      'Settings'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: 'page_profile.html' },
-                      'Profile'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: true },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'badge bg-danger pull-right' },
-                        '3'
-                      ),
-                      'Notifications'
-                    )
-                  ),
-                  _react2.default.createElement('li', { className: 'divider' }),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: 'page_signin.html' },
-                      'Logout'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement('div', { className: 'line dk hidden-folded' })
-            ),
-            _react2.default.createElement(
-              'nav',
-              { 'ui-nav': true, className: 'navi clearfix' },
-              _react2.default.createElement(
-                'ul',
-                { className: 'nav' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/new/' },
-                    _react2.default.createElement('i', { className: 'fa fa-plus-circle icon-large text-primary' }),
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'font-bold' },
-                      'New ...'
-                    )
-                  )
-                ),
-                folderList,
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { href: true, className: 'auto' },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'pull-right text-muted' },
-                      _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-right text' }),
-                      _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-down text-active' })
-                    ),
-                    _react2.default.createElement('i', { className: 'fa fa-folder icon text-primary' }),
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'font-bold' },
-                      'Folder'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'ul',
-                    { className: 'nav nav-sub dk' },
-                    _react2.default.createElement(
-                      'li',
-                      { className: 'nav-sub-header' },
-                      _react2.default.createElement(
-                        'a',
-                        { href: true },
+                { className: 'temp-container' },
+                this.state.folders.map(function (folder) {
+                    return _react2.default.createElement(
+                        'li',
+                        { key: folder._id, className: folder._id },
                         _react2.default.createElement(
-                          'span',
-                          null,
-                          'Dashboard'
+                            _reactRouter.Link,
+                            { to: '/folder/' + folder.name, key: folder._id, href: true, className: 'auto' },
+                            _react2.default.createElement(
+                                'span',
+                                { key: folder._id, className: 'font-bold' },
+                                folder.name
+                            )
                         )
-                      )
-                    ),
+                    );
+                })
+            );
+        }
+    }]);
+
+    return FolderList;
+}(_react2.default.Component);
+
+var Sidenav = function (_React$Component2) {
+    _inherits(Sidenav, _React$Component2);
+
+    function Sidenav(props) {
+        _classCallCheck(this, Sidenav);
+
+        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidenav).call(this, props));
+
+        _this2.state = _NewFolderStore2.default.getState();
+        _this2.onChange = _this2.onChange.bind(_this2);
+        return _this2;
+    }
+
+    _createClass(Sidenav, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _NewFolderStore2.default.listen(this.onChange);
+            _NewFolderActions2.default.getFolders();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _NewFolderStore2.default.unlisten(this.onChange);
+        }
+    }, {
+        key: 'onChange',
+        value: function onChange(state) {
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            console.log(this.state.folders);
+            var folderList = this.state.folders.map(function (folder) {
+                return _react2.default.createElement(
+                    'li',
+                    { key: folder._id, className: 'nav {folder._id}' },
                     _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        'a',
-                        { href: 'index.html' },
+                        _reactRouter.Link,
+                        { to: '/folder/new', key: folder._id, href: true, className: 'auto' },
                         _react2.default.createElement(
-                          'span',
-                          null,
-                          'Dashboard v1'
+                            'span',
+                            { key: folder._id, className: 'font-bold' },
+                            folder.name
                         )
-                      )
-                    ),
+                    )
+                );
+            });
+
+            return _react2.default.createElement(
+                'aside',
+                { id: 'aside', className: 'app-aside hidden-xs bg-white' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'aside-wrap' },
                     _react2.default.createElement(
-                      'li',
-                      null,
-                      _react2.default.createElement(
-                        'a',
-                        { href: 'dashboard.html' },
+                        'div',
+                        { className: 'navi-wrap' },
                         _react2.default.createElement(
-                          'b',
-                          { className: 'label bg-info pull-right' },
-                          'N'
+                            'div',
+                            { className: 'clearfix hidden-xs text-center hide', id: 'aside-user' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'dropdown wrapper' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: 'app.page.profile' },
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'thumb-lg w-auto-folded avatar m-t-sm' },
+                                        _react2.default.createElement('img', { src: '', className: 'img-full', alt: '...' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: '#', 'data-toggle': 'dropdown', className: 'dropdown-toggle hidden-folded' },
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'clear' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'block m-t-sm' },
+                                            _react2.default.createElement(
+                                                'strong',
+                                                { className: 'font-bold text-lt' },
+                                                'John.Smith'
+                                            ),
+                                            _react2.default.createElement('b', { className: 'caret' })
+                                        ),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'text-muted text-xs block' },
+                                            'Art Director'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'ul',
+                                    { className: 'dropdown-menu animated fadeInRight w hidden-folded' },
+                                    _react2.default.createElement(
+                                        'li',
+                                        { className: 'wrapper b-b m-b-sm bg-info m-t-n-xs' },
+                                        _react2.default.createElement('span', { className: 'arrow top hidden-folded arrow-info' }),
+                                        _react2.default.createElement(
+                                            'div',
+                                            null,
+                                            _react2.default.createElement(
+                                                'p',
+                                                null,
+                                                '300mb of 500mb used'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'progress progress-xs m-b-none dker' },
+                                            _react2.default.createElement('div', { className: 'progress-bar bg-white', 'data-toggle': 'tooltip', 'data-original-title': '50%' })
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'a',
+                                            { href: true },
+                                            'Settings'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'a',
+                                            { href: 'page_profile.html' },
+                                            'Profile'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'a',
+                                            { href: true },
+                                            _react2.default.createElement(
+                                                'span',
+                                                { className: 'badge bg-danger pull-right' },
+                                                '3'
+                                            ),
+                                            'Notifications'
+                                        )
+                                    ),
+                                    _react2.default.createElement('li', { className: 'divider' }),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'a',
+                                            { href: 'page_signin.html' },
+                                            'Logout'
+                                        )
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement('div', { className: 'line dk hidden-folded' })
                         ),
                         _react2.default.createElement(
-                          'span',
-                          null,
-                          'Dashboard v2'
+                            'nav',
+                            { 'ui-nav': true, className: 'navi clearfix' },
+                            _react2.default.createElement(
+                                'ul',
+                                { className: 'nav' },
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#', className: 'auto' },
+                                        _react2.default.createElement('i', { className: 'fa fa-plus-circle icon-large text-primary' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'font-bold', 'data-toggle': 'modal', 'data-target': '#myModal' },
+                                            'New ...'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#', className: 'auto', 'data-toggle': 'collapse', 'data-target': '#demo' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'pull-right text-muted' },
+                                            _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-right text' }),
+                                            _react2.default.createElement('i', { className: 'fa fa-fw fa-angle-down text-active' })
+                                        ),
+                                        _react2.default.createElement('i', { className: 'fa fa-folder icon text-primary' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'font-bold' },
+                                            'Processes'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'ul',
+                                        { id: 'demo', className: 'nav collapse' },
+                                        _react2.default.createElement(FolderList, null)
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        _reactRouter.Link,
+                                        { to: '/new/' },
+                                        _react2.default.createElement('i', { className: 'fa fa-folder icon text-primary' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'font-bold' },
+                                            'Assigned Tasks'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        _reactRouter.Link,
+                                        { to: '/new/' },
+                                        _react2.default.createElement('i', { className: 'fa fa-cog icon text-primary' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'font-bold' },
+                                            'Settings'
+                                        )
+                                    )
+                                )
+                            )
                         )
-                      )
                     )
-                  )
                 )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+            );
+        }
+    }]);
 
-  return Sidenav;
+    return Sidenav;
 }(_react2.default.Component);
 
 exports.default = Sidenav;
 
-},{"../actions/NewFolderActions":4,"../stores/NewFolderStore":21,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+},{"../actions/NewFolderActions":5,"../stores/NewFolderStore":24,"react":"react","react-router":"react-router"}],18:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1713,7 +1923,7 @@ _reactDom2.default.render(_react2.default.createElement(
   _routes2.default
 ), document.getElementById('app'));
 
-},{"./routes":17,"history/lib/createBrowserHistory":31,"react":"react","react-dom":"react-dom","react-router":"react-router"}],17:[function(require,module,exports){
+},{"./routes":19,"history/lib/createBrowserHistory":34,"react":"react","react-dom":"react-dom","react-router":"react-router"}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1750,6 +1960,10 @@ var _NewFolder = require('./components/NewFolder');
 
 var _NewFolder2 = _interopRequireDefault(_NewFolder);
 
+var _DisplayFolder = require('./components/DisplayFolder');
+
+var _DisplayFolder2 = _interopRequireDefault(_DisplayFolder);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createElement(
@@ -1761,10 +1975,15 @@ exports.default = _react2.default.createElement(
     { component: _NewLayout2.default },
     _react2.default.createElement(_reactRouter.Route, { path: '/new', component: _NewOptions2.default }),
     _react2.default.createElement(_reactRouter.Route, { path: '/new/folder', component: _NewFolder2.default })
+  ),
+  _react2.default.createElement(
+    _reactRouter.Route,
+    { component: _DisplayFolder2.default },
+    _react2.default.createElement(_reactRouter.Route, { path: 'folder/:folderName' })
   )
 );
 
-},{"./components/AddCharacter":7,"./components/App":8,"./components/Home":10,"./components/NewFolder":12,"./components/NewLayout":13,"./components/NewOptions":14,"react":"react","react-router":"react-router"}],18:[function(require,module,exports){
+},{"./components/AddCharacter":8,"./components/App":9,"./components/DisplayFolder":10,"./components/Home":12,"./components/NewFolder":14,"./components/NewLayout":15,"./components/NewOptions":16,"react":"react","react-router":"react-router"}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1840,7 +2059,83 @@ var AddCharacterStore = function () {
 
 exports.default = _alt2.default.createStore(AddCharacterStore);
 
-},{"../actions/AddCharacterActions":1,"../alt":6}],19:[function(require,module,exports){
+},{"../actions/AddCharacterActions":1,"../alt":7}],21:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _DisplayFolderActions = require('../actions/DisplayFolderActions');
+
+var _DisplayFolderActions2 = _interopRequireDefault(_DisplayFolderActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DisplayFolderStore = function () {
+  function DisplayFolderStore() {
+    _classCallCheck(this, DisplayFolderStore);
+
+    this.bindActions(_DisplayFolderActions2.default);
+    this.name = '';
+    this.gender = '';
+    this.helpBlock = '';
+    this.nameValidationState = '';
+    this.genderValidationState = '';
+  }
+
+  _createClass(DisplayFolderStore, [{
+    key: 'onDisplayFolderSuccess',
+    value: function onDisplayFolderSuccess(successMessage) {
+      this.nameValidationState = 'has-success';
+      this.helpBlock = successMessage;
+    }
+  }, {
+    key: 'onDisplayFolderFail',
+    value: function onDisplayFolderFail(errorMessage) {
+      this.nameValidationState = 'has-error';
+      this.helpBlock = errorMessage;
+    }
+  }, {
+    key: 'onUpdateName',
+    value: function onUpdateName(event) {
+      this.name = event.target.value;
+      this.nameValidationState = '';
+      this.helpBlock = '';
+    }
+  }, {
+    key: 'onUpdateGender',
+    value: function onUpdateGender(event) {
+      this.gender = event.target.value;
+      this.genderValidationState = '';
+    }
+  }, {
+    key: 'onInvalidName',
+    value: function onInvalidName() {
+      this.nameValidationState = 'has-error';
+      this.helpBlock = 'Please enter a character name.';
+    }
+  }, {
+    key: 'onInvalidGender',
+    value: function onInvalidGender() {
+      this.genderValidationState = 'has-error';
+    }
+  }]);
+
+  return DisplayFolderStore;
+}();
+
+exports.default = _alt2.default.createStore(DisplayFolderStore);
+
+},{"../actions/DisplayFolderActions":2,"../alt":7}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1887,7 +2182,7 @@ var FooterStore = function () {
 
 exports.default = _alt2.default.createStore(FooterStore);
 
-},{"../actions/FooterActions":2,"../alt":6}],20:[function(require,module,exports){
+},{"../actions/FooterActions":3,"../alt":7}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1964,7 +2259,7 @@ var NavbarStore = function () {
 
 exports.default = _alt2.default.createStore(NavbarStore);
 
-},{"../actions/NavbarActions":3,"../alt":6}],21:[function(require,module,exports){
+},{"../actions/NavbarActions":4,"../alt":7}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2052,7 +2347,7 @@ var NewFolderStore = function () {
 
 exports.default = _alt2.default.createStore(NewFolderStore);
 
-},{"../actions/NewFolderActions":4,"../alt":6}],22:[function(require,module,exports){
+},{"../actions/NewFolderActions":5,"../alt":7}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2128,7 +2423,7 @@ var NewLayoutStore = function () {
 
 exports.default = _alt2.default.createStore(NewLayoutStore);
 
-},{"../actions/NewLayoutActions":5,"../alt":6}],23:[function(require,module,exports){
+},{"../actions/NewLayoutActions":6,"../alt":7}],26:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -2224,7 +2519,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":24,"./lib/keys.js":25}],24:[function(require,module,exports){
+},{"./lib/is_arguments.js":27,"./lib/keys.js":28}],27:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -2246,7 +2541,7 @@ function unsupported(object){
     false;
 };
 
-},{}],25:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -2257,7 +2552,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],26:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -2289,7 +2584,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],27:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2316,7 +2611,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],28:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -2388,7 +2683,7 @@ function readState(key) {
 }
 }).call(this,require('_process'))
 
-},{"_process":40,"warning":41}],29:[function(require,module,exports){
+},{"_process":43,"warning":44}],32:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2469,13 +2764,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],30:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],31:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2657,7 +2952,7 @@ exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":26,"./DOMStateStorage":28,"./DOMUtils":29,"./ExecutionEnvironment":30,"./createDOMHistory":32,"./parsePath":37,"_process":40,"invariant":39}],32:[function(require,module,exports){
+},{"./Actions":29,"./DOMStateStorage":31,"./DOMUtils":32,"./ExecutionEnvironment":33,"./createDOMHistory":35,"./parsePath":40,"_process":43,"invariant":42}],35:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2701,7 +2996,7 @@ exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./DOMUtils":29,"./ExecutionEnvironment":30,"./createHistory":33,"_process":40,"invariant":39}],33:[function(require,module,exports){
+},{"./DOMUtils":32,"./ExecutionEnvironment":33,"./createHistory":36,"_process":43,"invariant":42}],36:[function(require,module,exports){
 //import warning from 'warning'
 'use strict';
 
@@ -2993,7 +3288,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":26,"./AsyncUtils":27,"./createLocation":34,"./deprecate":35,"./parsePath":37,"./runTransitionHook":38,"deep-equal":23}],34:[function(require,module,exports){
+},{"./Actions":29,"./AsyncUtils":30,"./createLocation":37,"./deprecate":38,"./parsePath":40,"./runTransitionHook":41,"deep-equal":26}],37:[function(require,module,exports){
 //import warning from 'warning'
 'use strict';
 
@@ -3048,7 +3343,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":26,"./parsePath":37}],35:[function(require,module,exports){
+},{"./Actions":29,"./parsePath":40}],38:[function(require,module,exports){
 //import warning from 'warning'
 
 "use strict";
@@ -3064,7 +3359,7 @@ function deprecate(fn) {
 
 exports["default"] = deprecate;
 module.exports = exports["default"];
-},{}],36:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3078,7 +3373,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],37:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -3126,7 +3421,7 @@ exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./extractPath":36,"_process":40,"warning":41}],38:[function(require,module,exports){
+},{"./extractPath":39,"_process":43,"warning":44}],41:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -3154,7 +3449,7 @@ exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"_process":40,"warning":41}],39:[function(require,module,exports){
+},{"_process":43,"warning":44}],42:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -3210,7 +3505,7 @@ module.exports = invariant;
 
 }).call(this,require('_process'))
 
-},{"_process":40}],40:[function(require,module,exports){
+},{"_process":43}],43:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3331,7 +3626,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],41:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -3396,7 +3691,7 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 
-},{"_process":40}]},{},[16])
+},{"_process":43}]},{},[18])
 
 
 //# sourceMappingURL=bundle.js.map
